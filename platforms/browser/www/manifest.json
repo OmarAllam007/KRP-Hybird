@@ -1,0 +1,11 @@
+{
+  "background_color": "#FFF",
+  "display": "standalone",
+  "name": "Kifah Readymix",
+  "short_name": "Kifah Readymix",
+  "version": "com.phonegap.helloworld",
+  "description": "Hello World sample application that responds to the deviceready event.",
+  "author": "AlKifah Holding Company LLC",
+  "icons": [],
+  "start_url": "index.html"
+}
