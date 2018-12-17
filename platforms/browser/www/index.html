@@ -2,157 +2,179 @@
 <html>
 
 <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8"/>
     <meta http-equiv="Content-Security-Policy" content="
                             default-src * data: blob: ws: wss: gap://ready file://*;
                             style-src * 'unsafe-inline';
                             script-src * 'unsafe-inline' 'unsafe-eval';
                             connect-src * ws: wss:;">
-    <meta name="format-detection" content="telephone=no" />
-    <meta name="msapplication-tap-highlight" content="no" />
-    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="msapplication-tap-highlight" content="no"/>
+    <meta name="viewport"
+          content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width"/>
 
     <link rel="apple-touch-icon" href="img/kit/free/apple-icon.png">
     <link rel="icon" src="img/kit/free/favicon.png">
-    <link rel="stylesheet" type="text/css" style="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
-    <link rel="stylesheet" href="css/all.css" />
+    <link rel="stylesheet" type="text/css"
+          style="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons"/>
+    <link rel="stylesheet" href="css/all.css"/>
     <link rel="stylesheet" href="css/material-kit.css?v=2.0.2">
-    <link href="assets-for-demo/demo.css" rel="stylesheet" />
-    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <link href="assets-for-demo/demo.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="css/index.css"/>
     <title> Kifah Readymix </title>
 </head>
 
 <body class="signup-page profile-page">
-    <div id="app">
-        <nav class="navbar fixed-top navbar-expand-lg " color-on-scroll="100" id="sectionsNav" style="background-image: url(img/kit/back_h.png);  background-repeat: no-repeat; background-position: top right;">
-            <div class="container">
-                <div class="navbar-translate">
-                    <div >
-                        <router-link to="/contact-us" title="" data-placement="bottom" class="navbar-brand">
-                            <i class="fa fa-envelope"></i>
-                        </router-link>
-                    </div>
+<div id="app" :dir="layout_dir">
+    <nav class="navbar fixed-top navbar-expand-lg " color-on-scroll="100" id="sectionsNav"
+         style="background-image: url(img/kit/back_h.png);  background-repeat: no-repeat; background-position: top right;">
+        <div class="container">
+            <div class="navbar-translate">
+                <div>
+                    <router-link to="/contact-us" title="" data-placement="bottom" class="navbar-brand">
+                        <i class="fa fa-envelope"></i>
+                    </router-link>
+                </div>
 
-                    <div >
-                        <router-link to="/" class="navbar-brand">
-                            <img src="img/kit/logo_w.png">
-                        </router-link>
-                    </div>
+                <div>
+                    <router-link to="/" class="navbar-brand">
+                        <img src="img/kit/logo_w.png">
+                    </router-link>
+                </div>
 
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false"
+                <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false"
                         aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                        <span class="navbar-toggler-icon"></span>
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                </div>
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
 
-                <div class="collapse navbar-collapse">
-                    <div class=" navbar-nav gray">
-                        <div class="navbar-nav gray" style="background-image: url(img/kit/back_h.jpg);  background-position: top center no-repeat;">
-                        </div>
+            <div class="collapse navbar-collapse">
+                <div class=" navbar-nav gray">
+                    <div class="navbar-nav gray"
+                         style="background-image: url(img/kit/back_h.jpg);  background-position: top center no-repeat;">
                     </div>
-
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item">
-                            <router-link to="/" class="nav-link" style="background-image: url(img/kit/back_w.png);  background-repeat: no-repeat;  background-position: bottom left;">
-                                <i class="fa fa-home"></i> {{$t('layout.home')}}
-                            </router-link>
-                        </li>
-
-                        <li class="nav-item">
-                            <router-link to="/login" class="nav-link">
-                                <i class="fa fa-balance-scale"></i> {{$t('layout.balance')}}
-                            </router-link>
-                        </li>
-
-                        <li class="nav-item">
-                            <router-link to="/display-orders" class="nav-link">
-                                <i class="fa fa-shopping-basket"></i> {{$t('layout.orders')}}
-                            </router-link>
-                        </li>
-
-                        <li class="nav-item">
-                            <router-link to="/inquires" rel="tooltip" title="" data-placement="bottom" class="nav-link">
-                                <i class="fa fa-envelope-open"></i> {{$t('layout.contact')}}
-                            </router-link>
-                        </li>
-
-                        <li class="nav-item">
-                            <router-link to="/locations" class="nav-link">
-                                <i class="fa fa-map-marker-alt"></i> {{$t('layout.locations')}}
-                            </router-link>
-                        </li>
-
-                        <li class="nav-item">
-                            <router-link to="/about" class="nav-link">
-                                <i class="fa fa-address-card"></i> {{$t('layout.about')}}
-                            </router-link>
-                        </li>
-
-                        <li class="nav-item">
-                            <a rel="tooltip" title="" data-placement="bottom" class="nav-link" @click.prevent="switchLanguage">
-                                <i class="fa fa-globe"></i>{{$t('layout.language')}}
-                            </a>
-                        </li>
-
-                        <!--<li class="nav-item">-->
-                            <!--<router-link to="/about" rel="tooltip" title="" data-placement="bottom" class="nav-link">-->
-                                <!--<i class="fa fa-sign-out-alt"></i>Logout-->
-                            <!--</router-link>-->
-                        <!--</li>-->
-                    </ul>
                 </div>
+
+                <ul class="navbar-nav ml-auto" :style="nav_dir">
+                    <li class="nav-item">
+                        <router-link to="/" class="nav-link navbar-toggler"
+                                     style="background-image: url(img/kit/back_w.png);  background-repeat: no-repeat;  background-position: bottom left;" data-toggle="collapse">
+                            <i class="fa fa-home"></i> {{$t('layout.home')}}
+                        </router-link>
+                    </li>
+
+                    <li class="nav-item">
+                        <router-link to="/balance" class="nav-link navbar-toggler" data-toggle="collapse">
+                            <i class="fa fa-balance-scale"></i> {{$t('layout.balance')}}
+                        </router-link>
+                    </li>
+
+                    <li class="nav-item">
+                        <router-link to="/display-orders" class="nav-link navbar-toggler" data-toggle="collapse">
+                            <i class="fa fa-shopping-basket"></i> {{$t('layout.orders')}}
+                        </router-link>
+                    </li>
+
+                    <li class="nav-item">
+                        <router-link to="/inquires" rel="tooltip" title="" data-placement="bottom" class="nav-link navbar-toggler" data-toggle="collapse">
+                            <i class="fa fa-envelope-open"></i> {{$t('layout.contact')}}
+                        </router-link>
+                    </li>
+
+                    <li class="nav-item">
+                        <router-link to="/locations" class="nav-link navbar-toggler" data-toggle="collapse">
+                            <i class="fa fa-map-marker-alt"></i> {{$t('layout.locations')}}
+                        </router-link>
+                    </li>
+
+                    <li class="nav-item">
+                        <router-link to="/about" class="nav-link navbar-toggler" data-toggle="collapse">
+                            <i class="fa fa-address-card"></i> {{$t('layout.about')}}
+                        </router-link>
+                    </li>
+
+                    <li class="nav-item">
+                        <a rel="tooltip" title="" data-placement="bottom" class="nav-link navbar-toggler" data-toggle="collapse"
+                           @click.prevent="switchLanguage">
+                            <i class="fa fa-globe"></i> {{$t('layout.language')}}
+                        </a>
+                    </li>
+
+                    <!--<li class="nav-item">-->
+                    <!--<router-link to="/about" rel="tooltip" title="" data-placement="bottom" class="nav-link">-->
+                    <!--<i class="fa fa-sign-out-alt"></i>Logout-->
+                    <!--</router-link>-->
+                    <!--</li>-->
+                </ul>
             </div>
-        </nav>
+        </div>
+    </nav>
 
 
-        <router-view></router-view>
 
-        <footer class="footer" style="margin-top:0;">
-            <div class="container">
-                <div class="social-media">
-                    <a href="https://www.facebook.com/KifahReadymix" class="btn btn-just-icon btn-link btn-dribbble"><i
-                            class="fab fa-facebook-f"></i></a>
-                    <a href="https://twitter.com/kifahreadymix" class="btn btn-just-icon btn-link btn-twitter"><i class="fab fa-twitter"></i></a>
-                </div>
 
-                <div class="copyright">
+    <router-view>
 
-                    <span>{{$t('layout.reserved')}}</span>
-                </div>
+    </router-view>
+
+
+    <footer class="footer" style="margin-top:0;">
+        <div class="container">
+            <div class="social-media">
+                <a href="https://www.facebook.com/KifahReadymix" class="btn btn-just-icon btn-link btn-dribbble"><i
+                        class="fab fa-facebook-f"></i></a>
+                <a href="https://twitter.com/kifahreadymix" class="btn btn-just-icon btn-link btn-twitter"><i
+                        class="fab fa-twitter"></i></a>
             </div>
-        </footer>
-    </div>
-    <!--   Core JS Files   -->
-    <script src="js/core/jquery.min.js"></script>
-    <script src="js/core/popper.min.js"></script>
-    <script src="js/bootstrap-material-design.js"></script>
-    <!--  Plugin for Date Time Picker and Full Calendar Plugin  -->
-    <script src="js/plugins/moment.min.js"></script>
-    <!--	Plugin for the Datepicker, full documentation here: https://github.com/Eonasdan/bootstrap-datetimepicker -->
-    <script src="js/plugins/bootstrap-datetimepicker.min.js"></script>
-    <!--	Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
-    <script src="js/plugins/nouislider.min.js"></script>
-    <!-- Material Kit Core initialisations of plugins and Bootstrap Material Design Library -->
-    <script src="js/material-kit.js?v=2.0.2"></script>
-    <!-- Fixed Sidebar Nav - js With initialisations For Demo Purpose, Don't Include it in your project -->
-    <script src="assets-for-demo/js/material-kit-demo.js"></script>
-    <script>
-        $(document).ready(function () {
-            materialKit.initFormExtendedDatetimepickers();
 
-            materialKit.initSliders();
-        });
-    </script>
+            <div class="copyright">
 
-    <script type="text/javascript">
-        app.initialize();
-    </script>
+                <span>{{$t('layout.reserved')}}</span>
+            </div>
+        </div>
+    </footer>
+</div>
+<!--   Core JS Files   -->
+
+<script src="js/core/jquery.min.js"></script>
+<script src="js/core/popper.min.js"></script>
+<script src="js/bootstrap-material-design.js"></script>
+<!--  Plugin for Date Time Picker and Full Calendar Plugin  -->
+<script src="js/plugins/moment.min.js"></script>
+<!--	Plugin for the Datepicker, full documentation here: https://github.com/Eonasdan/bootstrap-datetimepicker -->
+<script src="js/plugins/bootstrap-datetimepicker.min.js"></script>
+<!--	Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
+<script src="js/plugins/nouislider.min.js"></script>
+<!-- Material Kit Core initialisations of plugins and Bootstrap Material Design Library -->
+<script src="js/material-kit.js?v=2.0.2"></script>
+<!-- Fixed Sidebar Nav - js With initialisations For Demo Purpose, Don't Include it in your project -->
+<script src="assets-for-demo/js/material-kit-demo.js"></script>
+<script>
+    $('.navbar>li>a').on('click', function(){
+        $('.navbar-collapse').collapse('hide');
+    });
+</script>
+<script>
+    $(document).ready(function () {
+        materialKit.initFormExtendedDatetimepickers();
+
+        materialKit.initSliders();
+    });
+
+</script>
+<script type="text/javascript">
+    App.initialize();
+
+</script>
 
 
-    <script type="text/javascript" src="cordova.js"></script>
-    <script type="text/javascript" src="js/index.js"></script>
+
+
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+
 </body>
 
 </html>

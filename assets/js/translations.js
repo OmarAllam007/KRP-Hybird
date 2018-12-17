@@ -12,7 +12,8 @@ export default {
             reserved: '©All Right Reserved',
             switch_language: 'Switch Language',
             language: 'العربية',
-            booking_notice: 'For booking inquiry within 24 hours please contact us on our toll free number 920000747'
+            booking_notice: 'For booking inquiry within 24 hours please contact us on our toll free number 920000747',
+            required:' ( required ) ',
         },
 
         balance: {
@@ -44,17 +45,18 @@ export default {
             new: 'New Order',
             'no-orders': 'No previous orders',
             order: 'order',
+            orders: 'orders',
         },
 
         labels: {
             name: 'Name',
             mobile: 'Mobile',
             email: 'Email',
-
+            message:'Message',
             send: 'Send',
 
             id_num: 'ID Number',
-            id_num_description: 'ID or Iqama number (optional)',
+            id_num_description: 'ID Number / CR Number',
 
             orders: {
                 branch: 'Branch',
@@ -70,18 +72,25 @@ export default {
                 readymix: 'Readymix',
                 blocks_type: 'Block Type',
                 amount: 'Amount',
+                quantity:'Quantity',
                 pieces: 'Pieces',
                 readymix_type: 'Readymix Type',
                 select_blocks_type: "Select Block Type",
                 city: {
-                    'Ahsaa': 'Al-Ahsaa',
+                    'AlAhsa': 'Al-Ahsaa',
                     'Dammam': 'Dammam',
                     'Hail': 'Hail',
                     'Jeddah': 'Jeddah',
                     'Jubail': 'Jubail',
                     'Madina': 'Madina',
                     'Riyadh': 'Riyadh'
+                },
+                select_readymix_type: 'Select Readymix Type',
+                statuses:{
+                    'Open':'Open',
+                    'Closed':'Closed'
                 }
+
             },
 
             contact: {
@@ -119,22 +128,29 @@ export default {
         location:{
             locations:'Locations',
             head:'KRB Head Office',
-            dammam:'مقر الدمام',
-            jubail:'مقر الجبيل',
-            riyadh:'مقر الرياض',
-            madinah:'مقر المدينة',
-            jeddah:'مقر جدة',
-            hail:'مقر حائل',
-            hasa:'مقر الأحساء',
+            dammam:'Dammam Location',
+            jubail:'Jubail Location',
+            riyadh:'Riyadh Location',
+            madinah:'Madinah Location',
+            jeddah:'Jeddah Location',
+            hail:'Hail Location',
+            hasa:'Al-hasa Location',
         },
         alert: {
+            order_created:'Order Created Successfully',
+            order_not_created:'Order Not Created',
             connection_error: 'Connection error',
             could_not_send_message: 'Cannot send your message',
             message_sent: 'Your message has been sent',
             your_order_sent: 'Thank you for your order, we will be in contact with you soon to confirm your booking within 24 hours',
-            cannot_send_order: 'Cannot send your order'
+            cannot_send_order: 'Cannot send your order',
+            verfiy_error:'Check your ID or Mobile Number'
+
         },
-    
+        errors:{
+            'mobile':'Mobile number not valid',
+            'comments':'Message field is required',
+        }
     },
 
     ar: {
@@ -151,7 +167,9 @@ export default {
             order_date: 'تاريخ الطلب',
             language: 'English',
             home: 'الرئيسية',
-            booking_notice: 'للحجز على طلبك خلال 24 ساعة القادمة الرجاء الاتصال على الرقم المجاني 920000747'
+            booking_notice: 'للحجز على طلبك خلال 24 ساعة القادمة الرجاء الاتصال على الرقم المجاني 920000747',
+            required:' ( مطلوب ) ',
+            message:'الرسالة'
         },
 
         balance: {
@@ -191,11 +209,11 @@ export default {
             name: 'الاسم',
             mobile: 'رقم الجوال',
             email: 'البريد الالكتروني',
-
+            message:'الرسالة',
             send: 'إرسال',
 
             id_num: 'رقم الهوية',
-            id_num_description: 'رقم الهوية أو الإقامة (اختياري)',
+            id_num_description: 'رقم الهوية أو السجل التجاري (اختياري)',
 
             orders: {
                 branch: 'الفرع',
@@ -211,17 +229,23 @@ export default {
                 readymix: 'الخرسانة الجاهزة',
                 blocks_type: 'نوع الطابوق',
                 amount: 'الكمية',
+                quantity:'العدد',
                 pieces: 'قطع',
                 readymix_type: 'نوع الخرسانة',
                 select_blocks_type: 'اختر نوع الطابوق',
+                select_readymix_type: 'اختر نوع الخرسانة',
                 city: {
-                    'Ahsaa': 'الإحساء',
+                    'AlAhsa': 'الإحساء',
                     'Dammam': 'الدمام',
                     'Hail': 'حائل',
                     'Jeddah': 'جدة',
                     'Jubail': 'الجبيل',
                     'Madina': 'المدينة',
                     'Riyadh': 'الرياض'
+                },
+                statuses:{
+                    'Open':'مفتوح',
+                    'Closed':'مغلق'
                 }
             },
 
@@ -267,11 +291,18 @@ export default {
             hasa:'مقر الأحساء',
         },
         alert: {
+            order_created:'تم إنشاء الطلب بنجاح',
+            order_not_created:'لم يتم إنشاء الطلب',
             connection_error: "خطأ في الاتصال",
             could_not_send_message: "لا يمكن إرسال رسالتك",
             message_sent: 'تم إرسال الرسالة',
             your_order_sent: 'شكرا على طلبك ، سيتم التواصل معك وتاكيد حجزك خلال 24 ساعة',
-            cannot_send_order: 'لا يمكن إرسال الطلب'
+            cannot_send_order: 'لا يمكن إرسال الطلب',
+            verfiy_error:'يرجى التأكد من المعلومات المدخلة'
+        },
+        errors:{
+            'mobile':'رقم الجوال المدخل غير صحيح',
+            'comments':'حقل الرسالة مطلوب'
         }
     }
 

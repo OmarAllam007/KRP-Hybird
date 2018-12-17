@@ -25,7 +25,7 @@
                                     </tr>
                                     <tr>
                                         <td class="table-danger">{{$t('order.order_type')}}</td>
-                                        <td>{{order.order_type}}</td>
+                                        <td>{{$t('labels.orders.'+order.order_type)}}</td>
                                     </tr>
                                     <tr>
                                         <td class="table-danger">{{$t('order.delivery_date')}}</td>
@@ -33,7 +33,7 @@
                                     </tr>
                                     <tr>
                                         <td class="table-danger">{{$t('order.branch')}}</td>
-                                        <td>{{ order.branch }}</td>
+                                        <td>{{ $t('labels.orders.city.'+order.branch)}}</td>
                                     </tr>
                                     <tr v-if="order.order_type == 'readymix'">
                                         <td class="table-danger">{{$t('labels.orders.readymix')}}</td>
@@ -45,8 +45,20 @@
                                     </tr>
                                     <tr>
                                         <td class="table-danger">{{$t('labels.orders.amount')}}</td>
-                                        <td>{{ order.amount }}</td>
+                                        <td>{{ order.amount }}
+                                            <span class="control-label" v-if="order.order_type=='readymix'">
+                                                    <span>m<sup>3</sup></span>
+                                                </span>
+                                            <span v-else>
+                                                 Pieces
+                                            </span>
+                                        </td>
                                     </tr>
+                                    <tr>
+                                        <td class="table-danger">{{$t('order.status')}}</td>
+                                        <td>{{ $t('labels.orders.statuses.'+order.status) }}</td>
+                                    </tr>
+
                                     <tr>
                                         <td class="table-danger">{{$t('labels.orders.comments')}}</td>
                                         <td>{{ order.comments }}</td>
@@ -76,7 +88,7 @@
         data() {
             return {
                 order: {},
-                device_id:'123456'
+                device_id: '123456'
             }
         },
         created() {
@@ -109,5 +121,20 @@
 </script>
 
 <style scoped>
-
+    a.btn-info{
+        background-color: #939393 !important;
+        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.25), 0 3px 1px -2px rgba(0, 1, 1, 0.2), 0 1px 5px 0 rgba(0, 19, 22, 0.27);
+    }
+    a.btn-info:hover{
+        background-color: #939393 !important;
+        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.25), 0 3px 1px -2px rgba(0, 1, 1, 0.2), 0 1px 5px 0 rgba(0, 19, 22, 0.27);
+    }
+    table {
+        box-shadow: -1px 0px 8px 2px #c6c2c2;
+    }
+    td.table-danger {
+        background-color: #ea464f !important;
+        color:white !important;
+        font-weight: 600;
+    }
 </style>

@@ -29,7 +29,7 @@
                                         </div>
                                         <div class="text-center">
                                             <button class="btn btn-danger btn-round">Verify</button>
-                                            <button class="btn btn-dark btn-round">Resend</button>
+                                            <!--<button class="btn btn-dark btn-round">Resend</button>-->
                                         </div>
                                     </form>
                                 </div>

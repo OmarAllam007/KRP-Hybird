@@ -12,12 +12,12 @@
         "source": "/Users/omar/code/krb-project/platforms/android/app/src/main/res/mipmap-ldpi/icon.png"
     },
     {
-        "merged": "/Users/omar/code/krb-project/platforms/android/app/build/intermediates/res/merged/debug/drawable-land-ldpi_screen.png.flat",
-        "source": "/Users/omar/code/krb-project/platforms/android/app/src/main/res/drawable-land-ldpi/screen.png"
-    },
-    {
         "merged": "/Users/omar/code/krb-project/platforms/android/app/build/intermediates/res/merged/debug/drawable-port-xxxhdpi_screen.png.flat",
         "source": "/Users/omar/code/krb-project/platforms/android/app/src/main/res/drawable-port-xxxhdpi/screen.png"
+    },
+    {
+        "merged": "/Users/omar/code/krb-project/platforms/android/app/build/intermediates/res/merged/debug/drawable-land-ldpi_screen.png.flat",
+        "source": "/Users/omar/code/krb-project/platforms/android/app/src/main/res/drawable-land-ldpi/screen.png"
     },
     {
         "merged": "/Users/omar/code/krb-project/platforms/android/app/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_action_remove.png.flat",

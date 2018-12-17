@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8"/>
     <meta http-equiv="Content-Security-Policy" content="
@@ -24,23 +25,22 @@
 </head>
 
 <body class="signup-page profile-page">
-
-<div id="app">
-
+<div id="app" :dir="layout_dir">
     <nav class="navbar fixed-top navbar-expand-lg " color-on-scroll="100" id="sectionsNav"
          style="background-image: url(img/kit/back_h.png);  background-repeat: no-repeat; background-position: top right;">
         <div class="container">
             <div class="navbar-translate">
-
-                <div class="navbar-toggler">
+                <div>
                     <router-link to="/contact-us" title="" data-placement="bottom" class="navbar-brand">
                         <i class="fa fa-envelope"></i>
                     </router-link>
-
                 </div>
 
-                <div class="navbar-toggler"><a class="navbar-brand" href="./index.html">
-                    <img src="img/kit/logo_w.png"></a></div>
+                <div>
+                    <router-link to="/" class="navbar-brand">
+                        <img src="img/kit/logo_w.png">
+                    </router-link>
+                </div>
 
                 <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false"
                         aria-label="Toggle navigation">
@@ -57,61 +57,67 @@
                     </div>
                 </div>
 
-                <ul class="navbar-nav ml-auto">
+                <ul class="navbar-nav ml-auto" :style="nav_dir">
                     <li class="nav-item">
-                        <router-link to="/" class="nav-link">
-                            <i class="fa fa-home"></i> Home
+                        <router-link to="/" class="nav-link navbar-toggler"
+                                     style="background-image: url(img/kit/back_w.png);  background-repeat: no-repeat;  background-position: bottom left;" data-toggle="collapse">
+                            <i class="fa fa-home"></i> {{$t('layout.home')}}
                         </router-link>
                     </li>
 
                     <li class="nav-item">
-                        <router-link to="/login" class="nav-link">
-                            <i class="fa fa-balance-scale"></i> Balance
+                        <router-link to="/balance" class="nav-link navbar-toggler" data-toggle="collapse">
+                            <i class="fa fa-balance-scale"></i> {{$t('layout.balance')}}
                         </router-link>
                     </li>
 
                     <li class="nav-item">
-                        <router-link to="/create-order" class="nav-link">
-                            <i class="fa fa-shopping-basket"></i> Orders
+                        <router-link to="/display-orders" class="nav-link navbar-toggler" data-toggle="collapse">
+                            <i class="fa fa-shopping-basket"></i> {{$t('layout.orders')}}
                         </router-link>
                     </li>
 
                     <li class="nav-item">
-                        <router-link to="/about" class="nav-link">
-                            <i class="fa fa-address-card"></i> About us
+                        <router-link to="/inquires" rel="tooltip" title="" data-placement="bottom" class="nav-link navbar-toggler" data-toggle="collapse">
+                            <i class="fa fa-envelope-open"></i> {{$t('layout.contact')}}
                         </router-link>
                     </li>
 
                     <li class="nav-item">
-                        <router-link to="/locations" class="nav-link">
-                            <i class="fa fa-map-marker-alt"></i> Locations
+                        <router-link to="/locations" class="nav-link navbar-toggler" data-toggle="collapse">
+                            <i class="fa fa-map-marker-alt"></i> {{$t('layout.locations')}}
                         </router-link>
                     </li>
 
                     <li class="nav-item">
-                        <router-link to="/contact-us" rel="tooltip" title="" data-placement="bottom" class="nav-link">
-                            <i class="fa fa-envelope-open"></i> Contact us
+                        <router-link to="/about" class="nav-link navbar-toggler" data-toggle="collapse">
+                            <i class="fa fa-address-card"></i> {{$t('layout.about')}}
                         </router-link>
                     </li>
 
                     <li class="nav-item">
-                        <router-link to="/about" rel="tooltip" title="" data-placement="bottom" class="nav-link">
-                            <i class="fa fa-globe"></i>العربية
-                        </router-link>
+                        <a rel="tooltip" title="" data-placement="bottom" class="nav-link navbar-toggler" data-toggle="collapse"
+                           @click.prevent="switchLanguage">
+                            <i class="fa fa-globe"></i> {{$t('layout.language')}}
+                        </a>
                     </li>
 
-                    <li class="nav-item">
-                        <router-link to="/about" rel="tooltip" title="" data-placement="bottom" class="nav-link">
-                            <i class="fa fa-sign-out-alt"></i>Logout
-                        </router-link>
-                    </li>
+                    <!--<li class="nav-item">-->
+                    <!--<router-link to="/about" rel="tooltip" title="" data-placement="bottom" class="nav-link">-->
+                    <!--<i class="fa fa-sign-out-alt"></i>Logout-->
+                    <!--</router-link>-->
+                    <!--</li>-->
                 </ul>
             </div>
         </div>
     </nav>
 
 
-    <router-view></router-view>
+
+
+    <router-view>
+
+    </router-view>
 
 
     <footer class="footer" style="margin-top:0;">
@@ -124,12 +130,14 @@
             </div>
 
             <div class="copyright">
-                <span>©All Right Reserved</span>
+
+                <span>{{$t('layout.reserved')}}</span>
             </div>
         </div>
     </footer>
 </div>
 <!--   Core JS Files   -->
+
 <script src="js/core/jquery.min.js"></script>
 <script src="js/core/popper.min.js"></script>
 <script src="js/bootstrap-material-design.js"></script>
@@ -144,18 +152,29 @@
 <!-- Fixed Sidebar Nav - js With initialisations For Demo Purpose, Don't Include it in your project -->
 <script src="assets-for-demo/js/material-kit-demo.js"></script>
 <script>
+    $('.navbar>li>a').on('click', function(){
+        $('.navbar-collapse').collapse('hide');
+    });
+</script>
+<script>
     $(document).ready(function () {
         materialKit.initFormExtendedDatetimepickers();
 
         materialKit.initSliders();
     });
+
 </script>
+<script type="text/javascript">
+    App.initialize();
+
+</script>
+
+
+
 
 <script type="text/javascript" src="cordova.js"></script>
 <script type="text/javascript" src="js/index.js"></script>
-<script type="text/javascript">
-    app.initialize();
-</script>
+
 </body>
 
 </html>

@@ -7,6 +7,7 @@ import About from './components/About.vue';
 import ContactUs from './components/ContactUs.vue';
 import Locations from './components/Locations.vue';
 import BalanceLogin from './components/BalanceLogin.vue';
+import Balance from './components/Balance.vue';
 import Verify from './components/Verify.vue';
 import NewOrder from './components/NewOrder.vue';
 import Orders from './components/Orders.vue';
@@ -14,6 +15,7 @@ import Order from './components/Order.vue';
 import Inquires from './components/Inquires.vue';
 import Inquiry from './components/Inquiry.vue';
 import messages from './translations';
+import swal from 'sweetalert';
 
 
 window.jQuery = require('jquery');
@@ -38,6 +40,7 @@ var router = new VueRouter({
         {path: '/orders/:id', component: Order},
         {path: '/inquires', component: Inquires},
         {path: '/inquires/:id', component: Inquiry},
+        {path: '/balance', component: Balance},
 
     ]
 });
@@ -59,12 +62,21 @@ Vue.prototype.$dispatch = function () {
 };
 
 var App = new Vue({
-    router,i18n,
+    router, i18n, swal,
     el: '#app',
     data() {
         const locale = window.localStorage.locale;
         return {
-            locale
+            locale,loading: false,
+        }
+    },
+    computed: {
+        layout_dir() {
+            return (this.locale == 'ar')? 'rtl' : 'ltr';
+        },
+
+        nav_dir() {
+            return (this.locale == 'ar')? 'text-align: right;' : 'text-align: left;';
         }
     },
     methods: {

@@ -25,19 +25,19 @@
                                         <td>{{ inquiry.created_at | formatDate }}</td>
                                     </tr>
                                     <tr>
-                                        <td class="table-danger">{{$t('contact.name')}}</td>
+                                        <td class="table-danger">{{$t('labels.name')}}</td>
                                         <td>{{inquiry.name}}</td>
                                     </tr>
                                     <tr>
-                                        <td class="table-danger">{{$t('contact.mobile')}}</td>
+                                        <td class="table-danger">{{$t('labels.mobile')}}</td>
                                         <td>{{ inquiry.mobile }}</td>
                                     </tr>
                                     <tr>
                                         <td class="table-danger">{{$t('contact.branch')}}</td>
-                                        <td>{{ inquiry.branch }}</td>
+                                        <td>{{ $t('labels.orders.city.'+inquiry.branch) }}</td>
                                     </tr>
                                     <tr>
-                                        <td class="table-danger">{{$t('contact.name')}}</td>
+                                        <td class="table-danger">{{$t('contact.comments')}}</td>
                                         <td>{{ inquiry.comments }}</td>
                                     </tr>
                                 </table>
@@ -88,11 +88,26 @@
                 }
 
                 return moment(value).format('DD MMMM YYYY HH:mm');
-            }
+            },
         },
     }
 </script>
 
 <style scoped>
-
+    table {
+        box-shadow: -1px 0px 8px 2px #c6c2c2;
+    }
+    td.table-danger {
+        background-color: #ea464f !important;
+        color:white !important;
+        font-weight: 600;
+    }
+    a.btn-info{
+        background-color: #939393 !important;
+        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.25), 0 3px 1px -2px rgba(0, 1, 1, 0.2), 0 1px 5px 0 rgba(0, 19, 22, 0.27);
+    }
+    a.btn-info:hover{
+        background-color: #939393 !important;
+        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.25), 0 3px 1px -2px rgba(0, 1, 1, 0.2), 0 1px 5px 0 rgba(0, 19, 22, 0.27);
+    }
 </style>

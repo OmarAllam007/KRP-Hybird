@@ -9,7 +9,7 @@
                                 <div class="col-md-6">
                                     <ul class="nav nav-pills nav-pills-icons flex-column" role="tablist">
                                         <li class="nav-item">
-                                            <router-link to="/login" class="nav-link active" style="background-image: url(img/kit/back_w.png);  background-repeat: no-repeat;  background-position: bottom left;">
+                                            <router-link to="/balance" class="nav-link active" style="background-image: url(img/kit/back_w.png);  background-repeat: no-repeat;  background-position: bottom left;">
                                                 <i class="fa fa-balance-scale"></i> {{$t('layout.balance')}}
                                             </router-link>
                                         </li>
