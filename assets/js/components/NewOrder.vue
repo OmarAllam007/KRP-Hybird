@@ -1,5 +1,6 @@
 <template>
-    <div class="page-header header-filter" filter-color="gray" style="background-image: url(img/kit/bg2.jpg); background-size: cover; background-position: top center;">
+    <div class="page-header header-filter" filter-color="gray"
+         style="background-image: url(img/kit/bg2.jpg); background-size: cover; background-position: top center;">
         <div class="container">
             <div class="row">
                 <div class="col-md-10 ml-auto mr-auto">
@@ -8,7 +9,8 @@
                         <div class="card-body">
                             <div class="row justify-content-center">
                                 <div class="form-group">
-                                    <router-link class="btn btn-info btn-block" to="/display-orders"><i class="fa fa-history"></i>
+                                    <router-link class="btn btn-info btn-block" to="/display-orders"><i
+                                            class="fa fa-history"></i>
                                         {{$t('order.orders')}}
                                     </router-link>
                                 </div>
@@ -21,8 +23,9 @@
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-textarea"> </span>
                                                 </div>
-                                                <input type="text" name="mobile" class="form-control" v-model="data.mobile"
-                                                    :placeholder="$t('labels.mobile') + $t('layout.required')">
+                                                <input type="text" name="mobile" class="form-control"
+                                                       v-model="data.mobile"
+                                                       :placeholder="$t('labels.mobile') + $t('layout.required')">
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -30,8 +33,9 @@
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-textarea"> </span>
                                                 </div>
-                                                <input type="text" name="id_num" class="form-control" v-model="data.id_number"
-                                                    :placeholder="$t('labels.id_num_description')">
+                                                <input type="text" name="id_num" class="form-control"
+                                                       v-model="data.id_number"
+                                                       :placeholder="$t('labels.id_num_description')">
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -39,8 +43,11 @@
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-textarea"> </span>
                                                 </div>
-                                                <select class="form-control" v-model="data.branch" placeholder="Select Branch (required)">
-                                                    <option value="0" selected>{{$t('labels.orders.select_branch') + $t('layout.required')}}</option>
+                                                <select class="form-control" v-model="data.branch"
+                                                        placeholder="Select Branch (required)">
+                                                    <option value="0" selected>{{$t('labels.orders.select_branch') +
+                                                        $t('layout.required')}}
+                                                    </option>
                                                     <option value="AlAhsa">{{$t('labels.orders.city.AlAhsa')}}</option>
                                                     <option value="Dammam">{{$t('labels.orders.city.Dammam')}}</option>
                                                     <option value="Hail">{{$t('labels.orders.city.Hail')}}</option>
@@ -52,14 +59,26 @@
                                             </div>
                                         </div>
 
+                                        <div :class="'form-group ' + (errors.location? 'has-error' : '')">
+                                            <label for="location" class="control-label">{{$t('labels.orders.location')}}
+                                                <span class="red">*</span></label>
+                                            <!--<input type="text" @blur="selectLocation" class="form-control">-->
+                                            <div id="mapCanvas" class="mapCanvas"></div>
+
+                                            <!--<div class="google-map" id="mapName"></div>-->
+
+                                        </div>
+
                                         <div :class="'form-group'">
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-textarea"></span>
                                                 </div>
                                                 <select name="order_type" id="order_type" v-model="data.order_type"
-                                                    class="form-control">
-                                                    <option value="">{{$t("order.order_type") + $t("layout.required")}}</option>
+                                                        class="form-control">
+                                                    <option value="">{{$t("order.order_type") +
+                                                        $t("layout.required")}}
+                                                    </option>
                                                     <option value="blocks">{{$t('labels.orders.blocks')}}</option>
                                                     <option value="readymix">{{$t('labels.orders.readymix')}}</option>
                                                 </select>
@@ -70,7 +89,7 @@
                                                 {{$t("labels.orders.readymix")}} <span class="red">*</span>
                                             </label>
                                             <select name="readymix_type" id="readymix_type" v-model="data.readymix_type"
-                                                class="form-control">
+                                                    class="form-control">
                                                 <option value="">{{$t("labels.orders.select_readymix_type")}}
                                                 </option>
                                                 <option value="C15">C15</option>
@@ -91,7 +110,7 @@
                                                 {{$t("labels.orders.select_blocks_type")}}
                                                 <span class="red">*</span></label>
                                             <select name="blocks_type" id="blocks_type" v-model="data.blocks_type"
-                                                class="form-control">
+                                                    class="form-control">
                                                 <option value="">{{$t("labels.orders.select_blocks_type")}}</option>
                                                 <option value="Cement Block 10 CM">Cement Block 10 CM</option>
                                                 <option value="Cement Block 15 CM">Cement Block 15 CM</option>
@@ -104,21 +123,23 @@
                                         </div>
 
                                         <div :class="'form-group '" v-show="data.order_type">
-                                            <label for="amount" class="control-label" v-if="data.order_type=='readymix'">
+                                            <label for="amount" class="control-label"
+                                                   v-if="data.order_type=='readymix'">
                                                 {{$t('labels.orders.amount')}} (
-                                                <span >m<sup>3</sup></span>
+                                                <span>m<sup>3</sup></span>
                                                 )
                                             </label>
 
                                             <label for="amount" class="control-label" v-else>
                                                 {{$t('labels.orders.quantity')}} (
-                                                <span >Pieces</span>
+                                                <span>Pieces</span>
                                                 )
                                                 <span class="red">*</span>
                                             </label>
 
 
-                                            <input type="number" v-model="data.amount" name="amount" id="amount" class="form-control">
+                                            <input type="number" v-model="data.amount" name="amount" id="amount"
+                                                   class="form-control">
                                         </div>
 
                                         <div class="form-group">
@@ -144,8 +165,9 @@
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-textarea"></span>
                                                 </div>
-                                                <textarea class="form-control" cols="30" rows="4" v-model="data.comments"
-                                                    :placeholder="$t('labels.orders.comments')"></textarea>
+                                                <textarea class="form-control" cols="30" rows="4"
+                                                          v-model="data.comments"
+                                                          :placeholder="$t('labels.orders.comments')"></textarea>
                                             </div>
                                         </div>
                                         <ul>
@@ -166,6 +188,7 @@
                 </div>
             </div>
         </div>
+
     </div>
 </template>
 
@@ -183,7 +206,6 @@
                     id_number: '',
                     branch: 0,
                     order_type: '',
-                    amount: '',
                     comments: '',
                     delivery_date: '',
                     delivery_time: '',
@@ -193,19 +215,55 @@
                     amount: 0,
                     // device_id: this.device_id()
                     device_id: '123456',
+                    address: '', latitude: '', longitude: '', map: ''
 
                 },
                 alert_message: {
                     message: '',
                     type: ''
                 },
-                errors:{}
+                errors: {}
             }
         },
         created() {
+        },
+        mounted() {
+            // const div = document.getElementById("mapCanvas");
+            // const options = {
+            //     zoom: 4,
+            //     center: new google.maps.LatLng(24.0130221, 40.5708524, 6)
+            // }
+            // const map = new google.maps.Map(div, options);
 
-},
+            // navigator.geolocation.getCurrentPosition(pos => {
+            //
+            //     const lat = pos.coords.latitude;
+            //     const lng = pos.coords.longitude;
+            //
+            //     this.data.latitude = lat;
+            //     this.data.longitude = lng;
+            //
+            //     const center = {lat, lng};
+            //     const zoom = 13;
+            //
+            //     this.map = new google.maps.Map(div, {zoom, center});
+            //     const marker = new google.maps.Marker({map: this.map, position: center});
+            //
+            //     const move_marker = () => {
+            //         marker.setPosition(this.map.center);
+            //         this.data.latitude = this.map.center.lat();
+            //         this.data.longitude = this.map.center.lng();
+            //     };
+            //
+            //     this.map.addListener('drag', move_marker);
+            //     this.map.addListener('center_changed', move_marker);
+            // });
+
+            this.getMapLocation()
+            this.watchMapPosition()
+        },
         methods: {
+
             newOrder() {
                 this.$http.post(url('/api/orders/create-order'), this.data).then(response => {
                     let alert_message_content = this.$t('alert.your_order_sent')
@@ -236,6 +294,71 @@
                     this.errors = errors;
                     // this.$parent.loading = false;
                 });
+            },
+            getMapLocation() {
+
+
+                navigator.geolocation.getCurrentPosition
+                ((position) => {
+                    this.data.latitude = position.coords.latitude;
+                    this.data.longitude = position.coords.longitude;
+
+                    this.getMap(this.data.latitude, this.data.longitude);
+
+
+                }, this.onMapError, {enableHighAccuracy: true});
+
+
+
+
+
+            },
+            getMap(latitude, longitude) {
+                var mapOptions = {
+                    center: new google.maps.LatLng(0, 0),
+                    zoom: 1,
+                    mapTypeId: google.maps.MapTypeId.ROADMAP
+                };
+
+                this.data.map = new google.maps.Map
+                (document.getElementById("mapCanvas"), mapOptions);
+
+
+                var latLong = new google.maps.LatLng(latitude, longitude);
+
+                var marker = new google.maps.Marker({
+                    position: latLong
+                });
+
+                marker.setMap(this.data.map);
+                this.data.map.setZoom(15);
+                this.data.map.setCenter(marker.getPosition());
+
+
+            },
+            onMapError(error) {
+                console.log('code: ' + error.code + '\n' +
+                    'message: ' + error.message + '\n');
+            },
+
+            watchMapPosition() {
+                return navigator.geolocation.watchPosition
+                ((position) => {
+
+                    this.data.latitude = position.coords.latitude;
+                    this.data.longitude = position.coords.longitude;
+                    var updatedLatitude = position.coords.latitude;
+                    var updatedLongitude = position.coords.longitude;
+
+                    if (updatedLatitude != this.data.latitude && updatedLongitude != this.data.longitude) {
+
+                        this.data.latitude = updatedLatitude;
+                        this.data.longitude = updatedLongitude;
+
+                        this.getMap(updatedLatitude, updatedLongitude);
+                    }
+                }, this.onMapError, {enableHighAccuracy: true});
+
             }
         },
         computed: {
@@ -244,9 +367,7 @@
                     .length
             }
         },
-        watch: {
-        
-        },
+        watch: {},
         components: {
             Alert
         }
@@ -254,12 +375,20 @@
 </script>
 
 <style scoped>
-    a.btn-info{
+    a.btn-info {
         background-color: #939393 !important;
         box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.25), 0 3px 1px -2px rgba(0, 1, 1, 0.2), 0 1px 5px 0 rgba(0, 19, 22, 0.27);
     }
-    a.btn-info:hover{
+
+    a.btn-info:hover {
         background-color: #939393 !important;
         box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.25), 0 3px 1px -2px rgba(0, 1, 1, 0.2), 0 1px 5px 0 rgba(0, 19, 22, 0.27);
+    }
+
+    .mapCanvas {
+        width: 300px;
+        height: 200px;
+        margin: 0 auto;
+        background: gray;
     }
 </style>

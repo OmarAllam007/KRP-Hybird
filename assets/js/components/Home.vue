@@ -13,18 +13,24 @@
                                                 <i class="fa fa-balance-scale"></i> {{$t('layout.balance')}}
                                             </router-link>
                                         </li>
+
                                         <li class="nav-item">
-                                            <router-link to="/display-orders" class="nav-link active2" style="background-image: url(img/kit/back_g.png);  background-repeat: no-repeat;  background-position: bottom left;">
+                                            <router-link to="/products" class="nav-link active2" style="background-image: url(img/kit/back_g.png);  background-repeat: no-repeat;  background-position: bottom left;">
+                                                <i class="fa fa-shopping-basket"></i> {{$t('layout.products')}}
+                                            </router-link>
+                                        </li>
+                                        <li class="nav-item">
+                                            <router-link to="/display-orders" class="nav-link active" style="background-image: url(img/kit/back_w.png);  background-repeat: no-repeat;  background-position: bottom left;">
                                                 <i class="fa fa-shopping-basket"></i> {{$t('layout.orders')}}
                                             </router-link>
                                         </li>
                                         <li class="nav-item">
-                                            <router-link to="/inquires" rel="tooltip" title="" data-placement="bottom" class="nav-link active" style="background-image: url(img/kit/back_w.png);  background-repeat: no-repeat;  background-position: bottom left;">
+                                            <router-link to="/inquires" rel="tooltip" title="" data-placement="bottom" class="nav-link active2" style="background-image: url(img/kit/back_g.png);  background-repeat: no-repeat;  background-position: bottom left;">
                                                 <i class="fa fa-envelope-open"></i> {{$t('layout.contact')}}
                                             </router-link>
                                         </li>
                                         <li class="nav-item">
-                                            <router-link to="/about" class="nav-link active2" style="background-image: url(img/kit/back_g.png);  background-repeat: no-repeat;  background-position: bottom left;">
+                                            <router-link to="/about" class="nav-link active" style="background-image: url(img/kit/back_w.png);  background-repeat: no-repeat;  background-position: bottom left;">
                                                 <i class="fa fa-address-card"></i> {{$t('layout.about')}}
                                             </router-link>
                                         </li>

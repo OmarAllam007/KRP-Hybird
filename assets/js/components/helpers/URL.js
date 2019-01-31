@@ -1,5 +1,5 @@
 export default function (path) {
-    let basePath = 'http://krp_laravel_project.test';
+    let basePath = 'http://hubdesk-crm.test';
 
     if (!/^\//.test(path)) {
         path = '/' + path;

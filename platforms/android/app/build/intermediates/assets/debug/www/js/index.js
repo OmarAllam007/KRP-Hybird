@@ -5259,7 +5259,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
             switch_language: 'Switch Language',
             language: 'العربية',
             booking_notice: 'For booking inquiry within 24 hours please contact us on our toll free number 920000747',
-            required: ' ( required ) '
+            required: ' ( required ) ',
+            products: 'Products'
         },
 
         balance: {
@@ -5408,7 +5409,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
             home: 'الرئيسية',
             booking_notice: 'للحجز على طلبك خلال 24 ساعة القادمة الرجاء الاتصال على الرقم المجاني 920000747',
             required: ' ( مطلوب ) ',
-            message: 'الرسالة'
+            message: 'الرسالة',
+            products: 'المنتجات'
         },
 
         balance: {
@@ -34336,7 +34338,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -34380,6 +34382,12 @@ module.exports = function listToStyles (parentId, list) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -34502,6 +34510,36 @@ var render = function() {
                                   "background-repeat": "no-repeat",
                                   "background-position": "bottom left"
                                 },
+                                attrs: { to: "/balance" }
+                              },
+                              [
+                                _c("i", {
+                                  staticClass: "fa fa-shopping-basket"
+                                }),
+                                _vm._v(
+                                  " " +
+                                    _vm._s(_vm.$t("layout.products")) +
+                                    "\n                                        "
+                                )
+                              ]
+                            )
+                          ],
+                          1
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "li",
+                          { staticClass: "nav-item" },
+                          [
+                            _c(
+                              "router-link",
+                              {
+                                staticClass: "nav-link active",
+                                staticStyle: {
+                                  "background-image": "url(img/kit/back_w.png)",
+                                  "background-repeat": "no-repeat",
+                                  "background-position": "bottom left"
+                                },
                                 attrs: { to: "/display-orders" }
                               },
                               [
@@ -34526,9 +34564,9 @@ var render = function() {
                             _c(
                               "router-link",
                               {
-                                staticClass: "nav-link active",
+                                staticClass: "nav-link active2",
                                 staticStyle: {
-                                  "background-image": "url(img/kit/back_w.png)",
+                                  "background-image": "url(img/kit/back_g.png)",
                                   "background-repeat": "no-repeat",
                                   "background-position": "bottom left"
                                 },
@@ -34559,9 +34597,9 @@ var render = function() {
                             _c(
                               "router-link",
                               {
-                                staticClass: "nav-link active2",
+                                staticClass: "nav-link active",
                                 staticStyle: {
-                                  "background-image": "url(img/kit/back_g.png)",
+                                  "background-image": "url(img/kit/back_w.png)",
                                   "background-repeat": "no-repeat",
                                   "background-position": "bottom left"
                                 },
@@ -37975,7 +38013,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\na.btn-info[data-v-412c71af]{\n    background-color: #939393 !important;\n    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.25), 0 3px 1px -2px rgba(0, 1, 1, 0.2), 0 1px 5px 0 rgba(0, 19, 22, 0.27);\n}\na.btn-info[data-v-412c71af]:hover{\n    background-color: #939393 !important;\n    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.25), 0 3px 1px -2px rgba(0, 1, 1, 0.2), 0 1px 5px 0 rgba(0, 19, 22, 0.27);\n}\n", ""]);
+exports.push([module.i, "\na.btn-info[data-v-412c71af] {\n    background-color: #939393 !important;\n    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.25), 0 3px 1px -2px rgba(0, 1, 1, 0.2), 0 1px 5px 0 rgba(0, 19, 22, 0.27);\n}\na.btn-info[data-v-412c71af]:hover {\n    background-color: #939393 !important;\n    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.25), 0 3px 1px -2px rgba(0, 1, 1, 0.2), 0 1px 5px 0 rgba(0, 19, 22, 0.27);\n}\n.mapCanvas[data-v-412c71af] {\n    width: 300px;\n    height: 200px;\n    margin: 0 auto;\n    background: gray;\n}\n", ""]);
 
 // exports
 
@@ -37990,8 +38028,29 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_helpers_URL__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_Alert__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_Alert___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__components_Alert__);
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -38171,22 +38230,24 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: "create-order",
     data: function data() {
-        var _data;
-
         return {
-            data: (_data = {
+            data: {
                 mobile: '',
                 id_number: '',
                 branch: 0,
                 order_type: '',
-                amount: '',
                 comments: '',
                 delivery_date: '',
                 delivery_time: '',
                 type: '',
                 readymix_type: '',
-                blocks_type: ''
-            }, _defineProperty(_data, 'amount', 0), _defineProperty(_data, 'device_id', '123456'), _data),
+                blocks_type: '',
+                amount: 0,
+                // device_id: this.device_id()
+                device_id: '123456',
+                address: '', latitude: '', longitude: '', map: ''
+
+            },
             alert_message: {
                 message: '',
                 type: ''
@@ -38195,6 +38256,41 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         };
     },
     created: function created() {},
+    mounted: function mounted() {
+        // const div = document.getElementById("mapCanvas");
+        // const options = {
+        //     zoom: 4,
+        //     center: new google.maps.LatLng(24.0130221, 40.5708524, 6)
+        // }
+        // const map = new google.maps.Map(div, options);
+
+        // navigator.geolocation.getCurrentPosition(pos => {
+        //
+        //     const lat = pos.coords.latitude;
+        //     const lng = pos.coords.longitude;
+        //
+        //     this.data.latitude = lat;
+        //     this.data.longitude = lng;
+        //
+        //     const center = {lat, lng};
+        //     const zoom = 13;
+        //
+        //     this.map = new google.maps.Map(div, {zoom, center});
+        //     const marker = new google.maps.Marker({map: this.map, position: center});
+        //
+        //     const move_marker = () => {
+        //         marker.setPosition(this.map.center);
+        //         this.data.latitude = this.map.center.lat();
+        //         this.data.longitude = this.map.center.lng();
+        //     };
+        //
+        //     this.map.addListener('drag', move_marker);
+        //     this.map.addListener('center_changed', move_marker);
+        // });
+
+        this.getMapLocation();
+        this.watchMapPosition();
+    },
 
     methods: {
         newOrder: function newOrder() {
@@ -38229,6 +38325,57 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                 _this.errors = errors;
                 // this.$parent.loading = false;
             });
+        },
+        getMapLocation: function getMapLocation() {
+            var _this2 = this;
+
+            navigator.geolocation.getCurrentPosition(function (position) {
+                _this2.data.latitude = position.coords.latitude;
+                _this2.data.longitude = position.coords.longitude;
+
+                _this2.getMap(_this2.data.latitude, _this2.data.longitude);
+            }, this.onMapError, { enableHighAccuracy: true });
+        },
+        getMap: function getMap(latitude, longitude) {
+            var mapOptions = {
+                center: new google.maps.LatLng(0, 0),
+                zoom: 1,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            };
+
+            this.data.map = new google.maps.Map(document.getElementById("mapCanvas"), mapOptions);
+
+            var latLong = new google.maps.LatLng(latitude, longitude);
+
+            var marker = new google.maps.Marker({
+                position: latLong
+            });
+
+            marker.setMap(this.data.map);
+            this.data.map.setZoom(15);
+            this.data.map.setCenter(marker.getPosition());
+        },
+        onMapError: function onMapError(error) {
+            console.log('code: ' + error.code + '\n' + 'message: ' + error.message + '\n');
+        },
+        watchMapPosition: function watchMapPosition() {
+            var _this3 = this;
+
+            return navigator.geolocation.watchPosition(function (position) {
+
+                _this3.data.latitude = position.coords.latitude;
+                _this3.data.longitude = position.coords.longitude;
+                var updatedLatitude = position.coords.latitude;
+                var updatedLongitude = position.coords.longitude;
+
+                if (updatedLatitude != _this3.data.latitude && updatedLongitude != _this3.data.longitude) {
+
+                    _this3.data.latitude = updatedLatitude;
+                    _this3.data.longitude = updatedLongitude;
+
+                    _this3.getMap(updatedLatitude, updatedLongitude);
+                }
+            }, this.onMapError, { enableHighAccuracy: true });
         }
     },
     computed: {
@@ -38433,7 +38580,8 @@ var render = function() {
                                       _vm._s(
                                         _vm.$t("labels.orders.select_branch") +
                                           _vm.$t("layout.required")
-                                      )
+                                      ) +
+                                        "\n                                                "
                                     )
                                   ]
                                 ),
@@ -38484,6 +38632,38 @@ var render = function() {
                           ])
                         ]),
                         _vm._v(" "),
+                        _c(
+                          "div",
+                          {
+                            class:
+                              "form-group " +
+                              (_vm.errors.location ? "has-error" : "")
+                          },
+                          [
+                            _c(
+                              "label",
+                              {
+                                staticClass: "control-label",
+                                attrs: { for: "location" }
+                              },
+                              [
+                                _vm._v(
+                                  _vm._s(_vm.$t("labels.orders.location")) +
+                                    "\n                                            "
+                                ),
+                                _c("span", { staticClass: "red" }, [
+                                  _vm._v("*")
+                                ])
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c("div", {
+                              staticClass: "mapCanvas",
+                              attrs: { id: "mapCanvas" }
+                            })
+                          ]
+                        ),
+                        _vm._v(" "),
                         _c("div", { class: "form-group" }, [
                           _c("div", { staticClass: "input-group" }, [
                             _vm._m(3),
@@ -38528,7 +38708,8 @@ var render = function() {
                                     _vm._s(
                                       _vm.$t("order.order_type") +
                                         _vm.$t("layout.required")
-                                    )
+                                    ) +
+                                      "\n                                                "
                                   )
                                 ]),
                                 _vm._v(" "),

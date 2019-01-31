@@ -22,19 +22,32 @@
     <link href="assets-for-demo/demo.css" rel="stylesheet"/>
     <link rel="stylesheet" type="text/css" href="css/index.css"/>
     <title> Kifah Readymix </title>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDVW55ByCBqlvDvaCz8eFSROcXVxV-Nzt4"
+            async defer></script>
 </head>
 
 <body class="signup-page profile-page">
+
 <div id="app" :dir="layout_dir">
     <nav class="navbar fixed-top navbar-expand-lg " color-on-scroll="100" id="sectionsNav"
          style="background-image: url(img/kit/back_h.png);  background-repeat: no-repeat; background-position: top right;">
         <div class="container">
             <div class="navbar-translate">
-                <div>
+                <div style="display: flex;">
+                    <div>
                     <router-link to="/contact-us" title="" data-placement="bottom" class="navbar-brand">
                         <i class="fa fa-envelope"></i>
                     </router-link>
+                    </div>
+                    <div style="padding: 0 10px;">
+                        <router-link to="/contact-us" title="" data-placement="bottom" class="navbar-brand">
+                            <i class="fa fa-shopping-cart"></i>
+                        </router-link>
+                        <span class="badge badge-pill badge-dark" style="padding: 3px">1</span>
+                    </div>
                 </div>
+
+
 
                 <div>
                     <router-link to="/" class="navbar-brand">
@@ -65,9 +78,16 @@
                         </router-link>
                     </li>
 
+
                     <li class="nav-item">
                         <router-link to="/balance" class="nav-link navbar-toggler" data-toggle="collapse">
                             <i class="fa fa-balance-scale"></i> {{$t('layout.balance')}}
+                        </router-link>
+                    </li>
+
+                    <li class="nav-item">
+                        <router-link to="/display-orders" class="nav-link navbar-toggler" data-toggle="collapse">
+                            <i class="fa fa-shopping-basket"></i> {{$t('layout.products')}}
                         </router-link>
                     </li>
 
@@ -164,6 +184,7 @@
     });
 
 </script>
+
 <script type="text/javascript">
     App.initialize();
 
@@ -171,9 +192,9 @@
 
 
 
-
 <script type="text/javascript" src="cordova.js"></script>
 <script type="text/javascript" src="js/index.js"></script>
+
 
 </body>
 

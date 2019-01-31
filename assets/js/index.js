@@ -14,9 +14,11 @@ import Orders from './components/Orders.vue';
 import Order from './components/Order.vue';
 import Inquires from './components/Inquires.vue';
 import Inquiry from './components/Inquiry.vue';
+import Products from './components/Products'
 import messages from './translations';
 import swal from 'sweetalert';
-
+import Cart from './components/Cart.vue'
+import Book from './components/Book.vue'
 
 window.jQuery = require('jquery');
 require('bootstrap-sass');
@@ -41,7 +43,8 @@ var router = new VueRouter({
         {path: '/inquires', component: Inquires},
         {path: '/inquires/:id', component: Inquiry},
         {path: '/balance', component: Balance},
-
+        {path:'/products',component:Products},
+        {path:'/cart-details',component:Book}
     ]
 });
 
@@ -66,10 +69,12 @@ var App = new Vue({
     el: '#app',
     data() {
         const locale = window.localStorage.locale;
+
         return {
-            locale,loading: false,
+            locale,loading: false,cart:[],
         }
     },
+
     computed: {
         layout_dir() {
             return (this.locale == 'ar')? 'rtl' : 'ltr';
@@ -77,7 +82,8 @@ var App = new Vue({
 
         nav_dir() {
             return (this.locale == 'ar')? 'text-align: right;' : 'text-align: left;';
-        }
+        },
+
     },
     methods: {
         switchLanguage() {
@@ -85,4 +91,5 @@ var App = new Vue({
             window.localStorage.locale = Vue.config.lang = this.$i18n.locale = this.locale;
         }
     },
+    components:{Cart}
 });

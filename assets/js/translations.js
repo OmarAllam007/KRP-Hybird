@@ -14,8 +14,8 @@ export default {
             language: 'العربية',
             booking_notice: 'For booking inquiry within 24 hours please contact us on our toll free number 920000747',
             required:' ( required ) ',
+            products:'Products'
         },
-
         balance: {
             login: 'Login',
             login_holder: 'Customer ID / Mobile No.',
@@ -28,7 +28,6 @@ export default {
             sms_code: 'SMS Code',
             verify: 'Verify'
         },
-
         order: {
             order_history: 'Order History',
             order_date: 'Order Date',
@@ -47,7 +46,6 @@ export default {
             order: 'order',
             orders: 'orders',
         },
-
         labels: {
             name: 'Name',
             mobile: 'Mobile',
@@ -98,7 +96,6 @@ export default {
                 message_here: 'Write your message here'
             }
         },
-
         contact: {
             since: 'Since',
             new: 'New Inquiry',
@@ -113,7 +110,6 @@ export default {
             date: 'Inquiry Date',
             'select-branch': 'Select Branch',
             save: 'Save',
-            inquiry: 'Inquiry'
         },
         about: {
             title: 'Al Kifah Ready-mix & Blocks',
@@ -150,7 +146,17 @@ export default {
         errors:{
             'mobile':'Mobile number not valid',
             'comments':'Message field is required',
+        },
+        products:{
+            'index':'Products',
+            'addToCart':'Add',
+        },
+        product:{
+            'product_name':'Product Name',
+            'quantity':'Quantity',
         }
+
+
     },
 
     ar: {
@@ -169,7 +175,8 @@ export default {
             home: 'الرئيسية',
             booking_notice: 'للحجز على طلبك خلال 24 ساعة القادمة الرجاء الاتصال على الرقم المجاني 920000747',
             required:' ( مطلوب ) ',
-            message:'الرسالة'
+            message:'الرسالة',
+            products:'المنتجات'
         },
 
         balance: {
@@ -303,6 +310,16 @@ export default {
         errors:{
             'mobile':'رقم الجوال المدخل غير صحيح',
             'comments':'حقل الرسالة مطلوب'
+        },
+
+        products:{
+            'index':'المنتجات',
+            'addToCart':'إضافة',
+        },
+
+        product:{
+            'product_name':'اسم المنتج',
+            'quantity':'الكمية',
         }
     }
 

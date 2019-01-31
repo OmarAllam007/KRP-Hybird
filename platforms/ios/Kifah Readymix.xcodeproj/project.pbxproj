@@ -41,6 +41,10 @@
 		D574452B305349DBAE4871D4 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5643A1AB8824E63A6208E3F /* SystemConfiguration.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		6EDF18B6CCB542F9884A293D /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 370FB02B255347EFB2527C5B /* CoreTelephony.framework */; };
 		3818FAD58A7B4FC7AC67DA7F /* CDVVibration.m in Sources */ = {isa = PBXBuildFile; fileRef = 63487A1D41944F36AF8A940E /* CDVVibration.m */; };
+		581BC67B04414E0FAA682686 /* ActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = A32326A5BFD04C689BEB2D13 /* ActionSheet.m */; };
+		5B7E53FDFF0347E7A50AEA0E /* LaunchNavigator.m in Sources */ = {isa = PBXBuildFile; fileRef = AB42101CB9114A44B746C60F /* LaunchNavigator.m */; };
+		122E070344594AEEB6F91C95 /* LN_Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = F079C00B4A4A4C90A59A08D5 /* LN_Reachability.m */; };
+		6F8DCF5E2D1041218D596C83 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6937F623712242A488A26FB9 /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -123,6 +127,13 @@
 		370FB02B255347EFB2527C5B /* CoreTelephony.framework */ = {isa = PBXFileReference; name = "CoreTelephony.framework"; path = "System/Library/Frameworks/CoreTelephony.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
 		63487A1D41944F36AF8A940E /* CDVVibration.m */ = {isa = PBXFileReference; name = "CDVVibration.m"; path = "cordova-plugin-vibration/CDVVibration.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
 		8C00959DF4964AB9906200ED /* CDVVibration.h */ = {isa = PBXFileReference; name = "CDVVibration.h"; path = "cordova-plugin-vibration/CDVVibration.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		A32326A5BFD04C689BEB2D13 /* ActionSheet.m */ = {isa = PBXFileReference; name = "ActionSheet.m"; path = "cordova-plugin-actionsheet/ActionSheet.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		F6B3E6F9797B4012AAC2BBDC /* ActionSheet.h */ = {isa = PBXFileReference; name = "ActionSheet.h"; path = "cordova-plugin-actionsheet/ActionSheet.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		AB42101CB9114A44B746C60F /* LaunchNavigator.m */ = {isa = PBXFileReference; name = "LaunchNavigator.m"; path = "uk.co.workingedge.phonegap.plugin.launchnavigator/LaunchNavigator.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		F079C00B4A4A4C90A59A08D5 /* LN_Reachability.m */ = {isa = PBXFileReference; name = "LN_Reachability.m"; path = "uk.co.workingedge.phonegap.plugin.launchnavigator/LN_Reachability.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		56A59B9FCA104C058C1A9058 /* LaunchNavigator.h */ = {isa = PBXFileReference; name = "LaunchNavigator.h"; path = "uk.co.workingedge.phonegap.plugin.launchnavigator/LaunchNavigator.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		47248C9F351D43CA822A3761 /* LN_Reachability.h */ = {isa = PBXFileReference; name = "LN_Reachability.h"; path = "uk.co.workingedge.phonegap.plugin.launchnavigator/LN_Reachability.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		6937F623712242A488A26FB9 /* MapKit.framework */ = {isa = PBXFileReference; name = "MapKit.framework"; path = "System/Library/Frameworks/MapKit.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +149,7 @@
 				C6B394C87D7746629716F9C1 /* AudioToolbox.framework in Frameworks */,
 				D574452B305349DBAE4871D4 /* SystemConfiguration.framework in Frameworks */,
 				6EDF18B6CCB542F9884A293D /* CoreTelephony.framework in Frameworks */,
+				6F8DCF5E2D1041218D596C83 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -217,6 +229,7 @@
 				59DE83BF838A4123A15B8C19 /* AudioToolbox.framework */,
 				C5643A1AB8824E63A6208E3F /* SystemConfiguration.framework */,
 				370FB02B255347EFB2527C5B /* CoreTelephony.framework */,
+				6937F623712242A488A26FB9 /* MapKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -275,6 +288,12 @@
 				DF9702BA419D43A4A7AEB5B7 /* CDVReachability.h */,
 				63487A1D41944F36AF8A940E /* CDVVibration.m */,
 				8C00959DF4964AB9906200ED /* CDVVibration.h */,
+				A32326A5BFD04C689BEB2D13 /* ActionSheet.m */,
+				F6B3E6F9797B4012AAC2BBDC /* ActionSheet.h */,
+				AB42101CB9114A44B746C60F /* LaunchNavigator.m */,
+				F079C00B4A4A4C90A59A08D5 /* LN_Reachability.m */,
+				56A59B9FCA104C058C1A9058 /* LaunchNavigator.h */,
+				47248C9F351D43CA822A3761 /* LN_Reachability.h */,
 			);
 			name = Plugins;
 			path = "Kifah Readymix/Plugins";
@@ -405,6 +424,9 @@
 				9740637A1C0940478DC3D192 /* CDVConnection.m in Sources */,
 				9EBC088D6049427F81D69539 /* CDVReachability.m in Sources */,
 				3818FAD58A7B4FC7AC67DA7F /* CDVVibration.m in Sources */,
+				581BC67B04414E0FAA682686 /* ActionSheet.m in Sources */,
+				5B7E53FDFF0347E7A50AEA0E /* LaunchNavigator.m in Sources */,
+				122E070344594AEEB6F91C95 /* LN_Reachability.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
