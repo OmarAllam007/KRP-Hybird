@@ -228,37 +228,6 @@
         created() {
         },
         mounted() {
-            // const div = document.getElementById("mapCanvas");
-            // const options = {
-            //     zoom: 4,
-            //     center: new google.maps.LatLng(24.0130221, 40.5708524, 6)
-            // }
-            // const map = new google.maps.Map(div, options);
-
-            // navigator.geolocation.getCurrentPosition(pos => {
-            //
-            //     const lat = pos.coords.latitude;
-            //     const lng = pos.coords.longitude;
-            //
-            //     this.data.latitude = lat;
-            //     this.data.longitude = lng;
-            //
-            //     const center = {lat, lng};
-            //     const zoom = 13;
-            //
-            //     this.map = new google.maps.Map(div, {zoom, center});
-            //     const marker = new google.maps.Marker({map: this.map, position: center});
-            //
-            //     const move_marker = () => {
-            //         marker.setPosition(this.map.center);
-            //         this.data.latitude = this.map.center.lat();
-            //         this.data.longitude = this.map.center.lng();
-            //     };
-            //
-            //     this.map.addListener('drag', move_marker);
-            //     this.map.addListener('center_changed', move_marker);
-            // });
-
             this.getMapLocation()
             this.watchMapPosition()
         },

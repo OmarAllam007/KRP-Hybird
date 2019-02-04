@@ -150,6 +150,19 @@ export default {
         products:{
             'index':'Products',
             'addToCart':'Add',
+            'book':'Book',
+            no_items:'No products selected !',
+            form:{
+                'name':'Name',
+                'mobile':'Mobile',
+                'email':'Email',
+                'city':'City',
+                'location':'Location',
+                'delivery_date':'Delivery Date',
+                'delivery_time':'Delivery Time',
+                'description':'Description',
+
+            }
         },
         product:{
             'product_name':'Product Name',
@@ -315,6 +328,18 @@ export default {
         products:{
             'index':'المنتجات',
             'addToCart':'إضافة',
+            'book':'حجز',
+            no_items:'لم يتم إختيار أي منتجات !',
+            form:{
+                'name':'الاسم',
+                'mobile':'رقم الجوال',
+                'email':'البريد الالكتروني',
+                'city':'المدينة',
+                'location':'الموقع',
+                'delivery_date':'تاريخ التسليم',
+                'delivery_time':'وقت التسليم',
+                'description':'ملاحظات',
+            }
         },
 
         product:{
