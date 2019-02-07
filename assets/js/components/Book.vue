@@ -3,6 +3,7 @@
          style="background-image: url(img/kit/bg2.jpg); background-size: cover; background-position: top center;">
         <div class="container">
             <div class="row">
+
                 <div class="col-md-10 ml-auto mr-auto">
                     <div class="card-body">
                         <div class="col-lg-6 col-md-12">
@@ -38,22 +39,22 @@
                                         </table>
                                         <fieldset>
                                             <div class="form-group">
-                                                <label for="name">{{$t('products.form.name')}} *</label>
+                                                <label for="name"  :class="{'text-danger':errors.name}">{{$t('products.form.name')}} *</label>
                                                 <input type="text" class="form-control" v-model="data.name" name="name" id="name" autocomplete="off">
                                             </div>
 
                                             <div class="form-group">
-                                                <label for="mobile">{{$t('products.form.mobile')}} *</label>
+                                                <label for="mobile"  :class="{'text-danger':errors.mobile}">{{$t('products.form.mobile')}} *</label>
                                                 <input type="text" class="form-control" v-model="data.mobile" name="mobile" id="mobile" autocomplete="off">
                                             </div>
 
                                             <div class="form-group">
-                                                <label for="email">{{$t('products.form.email')}}</label>
+                                                <label for="email"  :class="{'text-danger':errors.email}">{{$t('products.form.email')}} *</label>
                                                 <input type="email" class="form-control" v-model="data.email" name="email" id="email" autocomplete="off">
                                             </div>
 
                                             <div class="form-group">
-                                                <label for="city">{{$t('products.form.city')}}</label>
+                                                <label for="city"  :class="{'text-danger':errors.city}">{{$t('products.form.city')}} *</label>
                                                 <select class="form-control" v-model="data.city" id="city">
                                                     <option value="0" selected>{{$t('labels.orders.select_branch') +
                                                         $t('layout.required')}}
@@ -93,6 +94,12 @@
                                             </div>
                                         </fieldset>
 
+                                        <ul>
+                                            <li v-for="error in errors" class="text-danger" style="font-size:10pt">
+                                                {{error}}
+                                            </li>
+                                        </ul>
+
                                         <div class="text-center">
                                             <button class="btn btn-primary" style="font-weight:600" :disabled="!validToBooking" @click="bookOrder">
                                                <i class="fa fa-calendar-check"></i>  {{$t('products.book')}}
@@ -103,6 +110,10 @@
                                     <div v-else class="card-body text-center">
                                         <i class="fa fa-shopping-cart fa-4x cart-icon"></i>
                                         <p class="no_product">{{$t('products.no_items')}}</p>
+                                        <router-link to="/products" class="btn btn-primary" style="font-weight:600">
+                                            <i class="fa fa-cart"></i>  {{$t('products.goShopping')}}
+                                        </router-link>
+
                                     </div>
                                 </div>
                             </div>
@@ -118,15 +129,17 @@
     import EventBus from './helpers/EventBus'
     import Session from './helpers/Session.js';
     import url from '../components/helpers/URL'
+    import CJSON from 'circular-json'
 
 
     export default {
         name: "Book",
         data() {
-            var data = {name:'',mobile:'',email:'',location:'',delivery_date:'',delivery_time:'',products:[],latitude: '', longitude: '', map: '',user_location_city:''};
+            let data = {name:'',mobile:'',email:'',location:'',delivery_date:'',delivery_time:'',products:[],latitude: '', longitude: '', map: '',user_location_city:''};
             return {
                 data,
                 loading:false,
+                errors:{}
             }
         },
 
@@ -134,11 +147,28 @@
             bookOrder(){
                 this.loading = true;
 
-                this.$http.post(url('/api/create-order'),   {'data':this.data}).then(response => {
-                    // this.data.products = response.data;
+                this.$http.post(url('/api/create-order'),JSON.parse(CJSON.stringify(this.data))).then(response => {
                     this.loading = false;
-                }, () => {
+                    let alert_message_content = this.$t('alert.your_order_sent')
+                    swal({
+                        text: alert_message_content,
+                        icon: 'success',
+                        button: false,
+                        timer: 8000,
+                    });
+                    Session.set('cart-products', response.data.products);
+                    this.$parent.cart = response.data.products;
+
+                    Session.set('is-booked', true);
+                    this.$router.push('/checkpoint');
+                }, (response) => {
                     this.loading = false;
+                    let errors = {};
+                    for (let field in response.data) {
+                        errors[field] = response.data[field][0];
+                    }
+
+                    this.errors = errors;
                 });
             },
             removeProduct(index,item){
@@ -193,7 +223,6 @@
                 console.log('code: ' + error.code + '\n' +
                     'message: ' + error.message + '\n');
             },
-
             watchMapPosition() {
                 return navigator.geolocation.watchPosition
                 ((position) => {
@@ -216,7 +245,7 @@
         },
         computed: {
             validToBooking(){
-                return this.total_quantity !== '';
+                return this.total_quantity !== '' && this.data.name !== '' && this.data.mobile !== '' && this.data.email;
             },
             total_quantity() {
                 var count = this.data.products.reduce((item, product) => {
@@ -227,9 +256,12 @@
             }
         },
         created() {
+            if(Session.get('is-booked') == false){
+                this.$router.push('/checkpoint');
+            }
             this.getMapLocation()
             this.watchMapPosition()
-            this.data.products = this.$parent.cart;
+            this.data.products = Session.get('cart-products');
         }
     }
 </script>

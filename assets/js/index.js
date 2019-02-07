@@ -19,6 +19,8 @@ import messages from './translations';
 import swal from 'sweetalert';
 import Cart from './components/Cart.vue'
 import Book from './components/Book.vue'
+import Checkpoint from './components/CheckPoint.vue'
+import Session from './components/helpers/Session.js';
 
 window.jQuery = require('jquery');
 require('bootstrap-sass');
@@ -44,7 +46,8 @@ var router = new VueRouter({
         {path: '/inquires/:id', component: Inquiry},
         {path: '/balance', component: Balance},
         {path:'/products',component:Products},
-        {path:'/cart-details',component:Book}
+        {path:'/cart-details',component:Book},
+        {path:'/checkpoint',component:Checkpoint},
     ]
 });
 
@@ -84,6 +87,9 @@ var App = new Vue({
             return (this.locale == 'ar')? 'text-align: right;' : 'text-align: left;';
         },
 
+    },
+    created(){
+        Session.set('cart-products',[])
     },
     methods: {
         switchLanguage() {

@@ -146,11 +146,17 @@ export default {
         errors:{
             'mobile':'Mobile number not valid',
             'comments':'Message field is required',
+            'city':'City field is required',
+            'email':'Email field is not correct',
         },
         products:{
             'index':'Products',
             'addToCart':'Add',
             'book':'Book',
+            'goShopping':'Go for Shopping',
+            'pay':'Payment',
+            'cancel':'Cancel',
+
             no_items:'No products selected !',
             form:{
                 'name':'Name',
@@ -165,8 +171,10 @@ export default {
             }
         },
         product:{
-            'product_name':'Product Name',
+            'product_name':'Name',
             'quantity':'Quantity',
+            'price':'Price',
+            'total_price':'Total Price'
         }
 
 
@@ -321,14 +329,18 @@ export default {
             verfiy_error:'يرجى التأكد من المعلومات المدخلة'
         },
         errors:{
-            'mobile':'رقم الجوال المدخل غير صحيح',
-            'comments':'حقل الرسالة مطلوب'
+            'mobile':'يرجى التأكد من رقم الجوال المدخل',
+            'comments':'يرجى التأكد من حقل الملاحظات',
+            'city':'يرجى التأكد من حقل المدينة',
+            'email':'يرجى التأكد من حقل البريد الالكتروني',
         },
 
         products:{
             'index':'المنتجات',
             'addToCart':'إضافة',
             'book':'حجز',
+            'goShopping':'اذهب لإختيار منتج',
+            'pay':'الدفع',
             no_items:'لم يتم إختيار أي منتجات !',
             form:{
                 'name':'الاسم',
@@ -345,6 +357,8 @@ export default {
         product:{
             'product_name':'اسم المنتج',
             'quantity':'الكمية',
+            'price':'السعر',
+            'total_price':'الإجمالي'
         }
     }
 

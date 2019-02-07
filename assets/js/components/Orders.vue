@@ -15,7 +15,7 @@
                             <div class="card-body">
                                 <div class="row justify-content-center">
                                     <div class="form-group">
-                                        <router-link class="btn btn-primary btn-block" to="/create-order"><i
+                                        <router-link class="btn btn-primary btn-block" to="/products"><i
                                                 class="fa fa-plus"></i> {{$t('order.new')}}
                                         </router-link>
                                     </div>

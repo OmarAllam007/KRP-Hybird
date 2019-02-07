@@ -1,6 +1,6 @@
 <template>
     <div>
-        <router-link to="/cart-details" title="" data-placement="bottom" class="navbar-brand">
+        <router-link :to="checkpoint" title="" data-placement="bottom" class="navbar-brand">
             <i class="fa fa-shopping-cart"></i>
         </router-link>
         <span class="badge badge-pill badge-dark" style="padding: 3px" v-model="items_count"
@@ -19,6 +19,7 @@
                 cart: [],
                 items: 0,
                 products: [],
+                checkpoint:'/cart-details'
             }
         },
         computed: {
@@ -39,8 +40,16 @@
             }
         },
         created() {
+
             this.$parent.cart = Session.get('cart-products') ? Session.get('cart-products') : [];
 
+            EventBus.$on('clear-cart',()=>{
+                this.$parent.cart = [];
+                Session.set('cart-products',[]);
+                this.products = []
+                Session.set('is-booked',false);
+                this.items = 0
+            });
             EventBus.$on('add-to-cart', (item) => {
                 item.quantity = 1;
                 if (this.$parent.cart.length) {
