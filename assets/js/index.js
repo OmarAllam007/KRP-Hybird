@@ -74,7 +74,7 @@ var App = new Vue({
         const locale = window.localStorage.locale;
 
         return {
-            locale,loading: false,cart:[],
+            locale,loading: false,cart:[],checkpoint:false
         }
     },
 

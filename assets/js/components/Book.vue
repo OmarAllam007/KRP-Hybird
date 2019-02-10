@@ -23,38 +23,46 @@
                                             <tr v-for="(item, index) in data.products" :index="index">
                                                 <td>{{item.name}}</td>
                                                 <td>
-                                                    <input type="number"  class="form-control"  v-model="item.quantity">
+                                                    <input type="number" class="form-control" v-model="item.quantity">
                                                 </td>
                                                 <td>
-                                                    <a href="#" @click="removeProduct(index,item)"><i class="fa fa-minus-circle"></i></a>
+                                                    <a href="#" @click="removeProduct(index,item)"><i
+                                                            class="fa fa-minus-circle"></i></a>
                                                 </td>
 
                                             </tr>
                                             <tr style="background-color: #DD163D;color: white;font-weight: 600;">
                                                 <td>Total</td>
                                                 <td>{{total_quantity}}</td>
-                                                <td>  </td>
+                                                <td></td>
                                             </tr>
                                             </tbody>
                                         </table>
                                         <fieldset>
                                             <div class="form-group">
-                                                <label for="name"  :class="{'text-danger':errors.name}">{{$t('products.form.name')}} *</label>
-                                                <input type="text" class="form-control" v-model="data.name" name="name" id="name" autocomplete="off">
+                                                <label for="name" :class="{'text-danger':errors.name}">{{$t('products.form.name')}}
+                                                    *</label>
+                                                <input type="text" class="form-control" v-model="data.name" name="name"
+                                                       id="name" autocomplete="off">
                                             </div>
 
                                             <div class="form-group">
-                                                <label for="mobile"  :class="{'text-danger':errors.mobile}">{{$t('products.form.mobile')}} *</label>
-                                                <input type="text" class="form-control" v-model="data.mobile" name="mobile" id="mobile" autocomplete="off">
+                                                <label for="mobile" :class="{'text-danger':errors.mobile}">{{$t('products.form.mobile')}}
+                                                    *</label>
+                                                <input type="text" class="form-control" v-model="data.mobile"
+                                                       name="mobile" id="mobile" autocomplete="off">
                                             </div>
 
                                             <div class="form-group">
-                                                <label for="email"  :class="{'text-danger':errors.email}">{{$t('products.form.email')}} *</label>
-                                                <input type="email" class="form-control" v-model="data.email" name="email" id="email" autocomplete="off">
+                                                <label for="email" :class="{'text-danger':errors.email}">{{$t('products.form.email')}}
+                                                    *</label>
+                                                <input type="email" class="form-control" v-model="data.email"
+                                                       name="email" id="email" autocomplete="off">
                                             </div>
 
                                             <div class="form-group">
-                                                <label for="city"  :class="{'text-danger':errors.city}">{{$t('products.form.city')}} *</label>
+                                                <label for="city" :class="{'text-danger':errors.city}">{{$t('products.form.city')}}
+                                                    *</label>
                                                 <select class="form-control" v-model="data.city" id="city">
                                                     <option value="0" selected>{{$t('labels.orders.select_branch') +
                                                         $t('layout.required')}}
@@ -79,18 +87,24 @@
 
                                             <div class="form-group">
                                                 <label for="delivery_date">{{$t('products.form.delivery_date')}}</label>
-                                                <input type="date" class="form-control" name="delivery_date" v-model="data.delivery_date" id="delivery_date" autocomplete="off">
+                                                <input type="date" class="form-control" name="delivery_date"
+                                                       v-model="data.delivery_date" id="delivery_date"
+                                                       autocomplete="off">
                                             </div>
 
                                             <div class="form-group">
                                                 <label for="delivery_time">{{$t('products.form.delivery_time')}}</label>
-                                                <input type="time" class="form-control" name="delivery_time" v-model="data.delivery_time" id="delivery_time" autocomplete="off">
+                                                <input type="time" class="form-control" name="delivery_time"
+                                                       v-model="data.delivery_time" id="delivery_time"
+                                                       autocomplete="off">
                                             </div>
 
 
                                             <div class="form-group">
                                                 <label for="description">{{$t('products.form.description')}}</label>
-                                                <textarea  class="form-control" name="description" v-model="data.description" id="description" rows="8"></textarea>
+                                                <textarea class="form-control" name="description"
+                                                          v-model="data.description" id="description"
+                                                          rows="8"></textarea>
                                             </div>
                                         </fieldset>
 
@@ -101,8 +115,9 @@
                                         </ul>
 
                                         <div class="text-center">
-                                            <button class="btn btn-primary" style="font-weight:600" :disabled="!validToBooking" @click="bookOrder">
-                                               <i class="fa fa-calendar-check"></i>  {{$t('products.book')}}
+                                            <button class="btn btn-primary" style="font-weight:600"
+                                                    :disabled="!validToBooking" @click="bookOrder">
+                                                <i class="fa fa-calendar-check"></i> {{$t('products.book')}}
                                             </button>
                                         </div>
                                     </div>
@@ -111,7 +126,7 @@
                                         <i class="fa fa-shopping-cart fa-4x cart-icon"></i>
                                         <p class="no_product">{{$t('products.no_items')}}</p>
                                         <router-link to="/products" class="btn btn-primary" style="font-weight:600">
-                                            <i class="fa fa-cart"></i>  {{$t('products.goShopping')}}
+                                            <i class="fa fa-cart"></i> {{$t('products.goShopping')}}
                                         </router-link>
 
                                     </div>
@@ -135,20 +150,32 @@
     export default {
         name: "Book",
         data() {
-            let data = {name:'',mobile:'',email:'',location:'',delivery_date:'',delivery_time:'',products:[],latitude: '', longitude: '', map: '',user_location_city:''};
+            let data = {
+                name: '',
+                mobile: '',
+                email: '',
+                location: '',
+                delivery_date: '',
+                delivery_time: '',
+                products: [],
+                latitude: '',
+                longitude: '',
+                map: '',
+                user_location_city: ''
+            };
             return {
                 data,
-                loading:false,
-                errors:{}
+                loading: false,
+                errors: {}
             }
         },
 
-        methods:{
-            bookOrder(){
+        methods: {
+            bookOrder() {
                 this.loading = true;
 
-                this.$http.post(url('/api/create-order'),JSON.parse(CJSON.stringify(this.data))).then(response => {
-                    this.loading = false;
+                this.$http.post(url('/api/create-order'), JSON.parse(CJSON.stringify(this.data))).then(response => {
+                    this.$parent.checkpoint = true
                     let alert_message_content = this.$t('alert.your_order_sent')
                     swal({
                         text: alert_message_content,
@@ -158,8 +185,6 @@
                     });
                     Session.set('cart-products', response.data.products);
                     this.$parent.cart = response.data.products;
-
-                    Session.set('is-booked', true);
                     this.$router.push('/checkpoint');
                 }, (response) => {
                     this.loading = false;
@@ -171,11 +196,9 @@
                     this.errors = errors;
                 });
             },
-            removeProduct(index,item){
+            removeProduct(index, item) {
                 this.data.products.splice(index, 1);
-                // Session.get('cart-products').splice(index,1);
-                // // this.$parent.cart.splice(index,1)
-                EventBus.$emit('remove-from-cart',item);
+                EventBus.$emit('remove-from-cart', item);
             },
             getMapLocation() {
 
@@ -188,9 +211,6 @@
                     this.getMap(this.data.latitude, this.data.longitude);
 
                 }, this.onMapError, {enableHighAccuracy: true});
-
-
-
 
 
             },
@@ -215,7 +235,10 @@
                 this.data.map.setZoom(15);
                 this.data.map.setCenter(marker.getPosition());
 
-                $.getJSON('//nominatim.openstreetmap.org/reverse?json_callback=?&format=json', {lat: this.data.latitude, lon: this.data.longitude}, (data)=> {
+                $.getJSON('//nominatim.openstreetmap.org/reverse?json_callback=?&format=json', {
+                    lat: this.data.latitude,
+                    lon: this.data.longitude
+                }, (data) => {
                     this.data.user_location_city = data.address.city
                 });
             },
@@ -244,7 +267,7 @@
             }
         },
         computed: {
-            validToBooking(){
+            validToBooking() {
                 return this.total_quantity !== '' && this.data.name !== '' && this.data.mobile !== '' && this.data.email;
             },
             total_quantity() {
@@ -256,11 +279,8 @@
             }
         },
         created() {
-            if(Session.get('is-booked') == false){
-                this.$router.push('/checkpoint');
-            }
-            this.getMapLocation()
-            this.watchMapPosition()
+            this.getMapLocation();
+            this.watchMapPosition();
             this.data.products = Session.get('cart-products');
         }
     }
@@ -273,10 +293,12 @@
         margin: 0 auto;
         background: gray;
     }
-    .cart-icon{
+
+    .cart-icon {
         color: #e21638;
     }
-    .no_product{
+
+    .no_product {
         margin-top: 18px;
     }
 </style>

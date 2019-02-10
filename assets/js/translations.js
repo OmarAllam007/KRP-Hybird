@@ -156,7 +156,7 @@ export default {
             'goShopping':'Go for Shopping',
             'pay':'Payment',
             'cancel':'Cancel',
-
+            'not_valid':'The Highlighted products not available in your area, you should remove it so you can pay.',
             no_items:'No products selected !',
             form:{
                 'name':'Name',
@@ -341,6 +341,8 @@ export default {
             'book':'حجز',
             'goShopping':'اذهب لإختيار منتج',
             'pay':'الدفع',
+            'not_valid':'المنتجات المشار إليها لا توجد في منطقتك ٫ يرجى حذفها لإكمال عملية الدفع',
+
             no_items:'لم يتم إختيار أي منتجات !',
             form:{
                 'name':'الاسم',
