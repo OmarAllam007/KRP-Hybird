@@ -1,7 +1,7 @@
 <template>
     <div class="page-header" filter-color="gray"
          style="background-image: url(img/kit/bg2.jpg); background-size: cover; background-position: top center;">
-        <div class="container">
+        <div class="container" style="padding-top: 100px;">
             <div class="row">
 
                 <div class="col-md-10 ml-auto mr-auto">

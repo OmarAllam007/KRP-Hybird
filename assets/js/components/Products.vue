@@ -3,21 +3,22 @@
          style="
          background-image: url(img/kit/bg2.jpg); background-size: cover; background-position: top center;">
         <div class="container" style="padding-top: 5vh;">
-            <div class="row">
+            <div class="row" style="padding-top: 100px">
                 <div class="col-md-10 ml-auto mr-auto">
                     <div class="card card-signup">
                         <!--<h2 class="card-title text-center"> {{$t('products.index')}} </h2>-->
-                        <div class="card-body">
-                            <div class="row">
+                        <div class="card-body" >
+                            <div class="row" >
                                 <div class="products-container">
                                     <div class="product" v-for="(product, index) in products">
                                         <h5 class="product-name">{{product.name}}</h5>
                                         <!--<h6 class="card-subtitle mb-2 text-muted">{{product.name}}</h6>-->
                                         <div class="product-bottom">
                                             <p class="product-description">{{product.description}}</p>
-                                            <a href="#" class="" @click="addToCart(product)"><i
-                                                    class="fa fa-2x " :class="isSelected(product.id)"></i></a>
+
                                         </div>
+                                        <a href="#"   class="btn btn-sm btn-outline-primary" @click="addToCart(product)"><i
+                                                class="fa fa-2x fa-cart-plus" ></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -45,9 +46,15 @@
         },
         created() {
             this.getProducts();
+            this.cart = this.$parent.cart;
         },
         computed:{
-
+            // isSelected() {
+            //     console.log(product)
+            //     return this.$parent.cart.some((el) => {
+            //         return el.id === product.id;
+            //     });
+            // }
         },
         methods: {
             getProducts() {
@@ -61,17 +68,12 @@
             },
             addToCart(item) {
                 EventBus.$emit('add-to-cart',item)
+                this.isSelected(item)
             },
-            isSelected(id){
-                return 'fa-cart-plus';
-
-                // if((Session.get('cart-products') && Session.get('cart-products').indexOf(id) == -1) || !Session.get('cart-products')){
-                //     return 'fa-cart-plus';
-                //
-                // }else{
-                //     return 'fa-minus-square';
-                // }
+            isSelected(product){
+              return   this.cart.indexOf(product) === -1
             }
+
         }
     }
 </script>
