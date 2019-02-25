@@ -132,10 +132,10 @@
             loadInquiries() {
                 this.loading = true;
                 let device_id = '123456';
-                this.$http.get(url('/api/inquires/display'), {
+                this.$http.get(url('/api/display-inquiries'), {
                     device_id: device_id
                 }).then(response => {
-                    this.inquires = response.data.data;
+                    this.inquires = response.data;
                     this.loading = false;
                 }, () => {
                     this.loading = false;
@@ -168,7 +168,7 @@
                     return true
                 }).filter((inquiry) => {
                     if (this.filters.status && inquiry.status) {
-                        return inquiry.status.toLowerCase() == this.filters.status
+                        return inquiry.status_name.toLowerCase() == this.filters.status
                     }
                     return true
                 })

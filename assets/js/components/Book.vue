@@ -39,28 +39,28 @@
                                             </tbody>
                                         </table>
                                         <fieldset>
-                                            <div class="form-group">
+                                            <div class="form-group" v-show="!data.verified" >
                                                 <label for="name" :class="{'text-danger':errors.name}">{{$t('products.form.name')}}
                                                     *</label>
                                                 <input type="text" class="form-control" v-model="data.name" name="name"
                                                        id="name" autocomplete="off">
                                             </div>
 
-                                            <div class="form-group">
+                                            <div class="form-group" v-show="!data.verified" >
                                                 <label for="mobile" :class="{'text-danger':errors.mobile}">{{$t('products.form.mobile')}}
                                                     *</label>
                                                 <input type="text" class="form-control" v-model="data.mobile"
                                                        name="mobile" id="mobile" autocomplete="off">
                                             </div>
 
-                                            <div class="form-group">
+                                            <div class="form-group" v-show="!data.verified" >
                                                 <label for="email" :class="{'text-danger':errors.email}">{{$t('products.form.email')}}
                                                     *</label>
                                                 <input type="email" class="form-control" v-model="data.email"
                                                        name="email" id="email" autocomplete="off">
                                             </div>
 
-                                            <div class="form-group">
+                                            <div class="form-group"     >
                                                 <label for="city" :class="{'text-danger':errors.city}">{{$t('products.form.city')}}
                                                     *</label>
                                                 <select class="form-control" v-model="data.city" id="city">
@@ -161,7 +161,10 @@
                 latitude: '',
                 longitude: '',
                 map: '',
-                user_location_city: ''
+                user_location_city: '',
+                device_id:'123456',
+                verified: Session.get('verified') ? 1 : 0,
+
             };
             return {
                 data,
@@ -184,6 +187,7 @@
                         timer: 8000,
                     });
                     Session.set('cart-products', response.data.products);
+                    Session.set('is_booked',true)
                     this.$parent.cart = response.data.products;
                     this.$router.push('/checkpoint');
                 }, (response) => {
@@ -279,9 +283,18 @@
             }
         },
         created() {
+            if (this.$parent.checkpoint) {
+                this.$router.push('/checkpoint')
+            }
+            // this.$router.push('/cart-details')
             this.getMapLocation();
             this.watchMapPosition();
             this.data.products = Session.get('cart-products');
+            if(this.data.verified){
+              this.data.name = this.$parent.customer.name;
+              this.data.mobile = this.$parent.customer.mobile;
+              this.data.email = this.$parent.customer.email;
+            }
         }
     }
 </script>

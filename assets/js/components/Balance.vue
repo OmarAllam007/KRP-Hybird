@@ -101,6 +101,7 @@
 
                 this.$http.get(url(`/api/balance/display/${this.token}`)).then(response => {
                     this.balance = response.data;
+                    this.$parent.customer= response.data
                     // this.toggleBalance = true;
                     this.loading = false;
                     // this.$parent.loading = false;

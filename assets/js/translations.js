@@ -45,6 +45,10 @@ export default {
             'no-orders': 'No previous orders',
             order: 'order',
             orders: 'orders',
+            products:{
+                name:'Name',
+                quantity:'Quantity'
+            }
         },
         labels: {
             name: 'Name',
@@ -230,7 +234,12 @@ export default {
             status: 'حالة الطلب',
             new: 'طلب جديد',
             'no-orders': 'لا يوجد طلبات سابقة',
-            order: 'طلب'
+            order: 'طلب',
+            products:{
+                name:'الإسم',
+                quantity:'العدد'
+            }
+
         },
 
         labels: {

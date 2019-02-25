@@ -66,13 +66,23 @@
                                                         <td class="table-danger">{{$t('order.order_date')}}</td>
                                                         <td>{{ order.created_at | formatDate }}</td>
                                                     </tr>
-                                                    <tr>
-                                                        <td class="table-danger">{{$t('order.order_type')}}</td>
-                                                        <td>{{ $t('labels.orders.'+order.order_type) }}</td>
-                                                    </tr>
+                                                    <!--<tr>-->
+                                                        <!--<td class="table-danger">{{$t('order.order_type')}}</td>-->
+                                                        <!--<td>{{ $t('labels.orders.'+order.order_type) }}</td>-->
+                                                    <!--</tr>-->
                                                     <tr>
                                                         <td class="table-danger">{{$t('order.delivery_date')}}</td>
                                                         <td>{{ order.delivery_date_time | formatDate }}</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td class="table-danger">{{$t('order.branch')}}</td>
+                                                        <td>{{ order.branch }}</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td class="table-danger">{{$t('order.notes')}}</td>
+                                                        <td>{{ order.description }}</td>
                                                     </tr>
                                                     </tbody>
                                                 </table>
@@ -132,8 +142,8 @@
             loadOrders() {
                 this.loading = true;
                 let device_id = '123456'
-                this.$http.get(url('/api/orders/display'), {device_id: device_id}).then(response => {
-                    this.orders = response.data.data;
+                this.$http.get(url('/api/display-orders'), {device_id: device_id}).then(response => {
+                    this.orders = response.data;
                     this.loading = false;
                 }, () => {
                     this.loading = false;

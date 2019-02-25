@@ -157,6 +157,7 @@
             },
             cancelPayment() {
                 EventBus.$emit('clear-cart')
+                Session.set('is_booked',false)
                 this.$router.push('/products')
             }
 

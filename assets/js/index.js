@@ -74,8 +74,9 @@ var App = new Vue({
         const locale = window.localStorage.locale;
 
         return {
-            locale,loading: false,cart:[],checkpoint:false
+            locale,loading: false,cart:[],checkpoint:false,customer:''
         }
+
     },
 
     computed: {
@@ -89,7 +90,12 @@ var App = new Vue({
 
     },
     created(){
-        Session.set('cart-products',[])
+        if(!Session.get('cart-products')){
+            Session.set('cart-products',[])
+        }
+        if(Session.get('is_booked')){
+            this.checkpoint = true
+        }
     },
     methods: {
         switchLanguage() {

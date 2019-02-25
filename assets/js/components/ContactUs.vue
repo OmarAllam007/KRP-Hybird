@@ -117,9 +117,7 @@
                 // this.data.locale = this.$i18n.lang;
                 this.data.device_id = '123456';
                 this.loading = true;
-                this.$http.post(url('/api/inquires/create-inquiry'), this.data).then(response => {
-                    // Session.flash(this.$t('alert.message_sent'), 'ok');
-
+                this.$http.post(url('/api/create-inquiry'), this.data).then(response => {
                     var message = this.$t('alert.message_sent')
                     swal({
                         text: message,

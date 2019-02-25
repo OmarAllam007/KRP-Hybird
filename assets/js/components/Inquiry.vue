@@ -5,42 +5,50 @@
             <div class="row">
                 <div class="col-md-10 ml-auto mr-auto">
                     <div class="card card-signup">
-                        <h2 class="card-title text-center">{{$t('contact.inquiry')}} #{{inquiry.id}}</h2>
-                        <div class="card-body">
-                            <div class="row justify-content-center">
-                                <div class="form-group">
-                                    <router-link class="btn btn-primary btn-block" to="/contact-us"><i
-                                            class="fa fa-plus"></i> {{$t('contact.new')}}
-                                    </router-link>
+                        <div v-if="loading" class="text-center">
+                            <i style="position: relative;
+    text-align: center;
+    font-size: x-large;" class="fa fa-2x fa-spinner fa-spin"></i>
+                        </div>
 
-                                     <router-link class="btn btn-info btn-block" to="/inquires"><i
-                                            class="fa fa-history"></i> {{$t('contact.contact_history')}}
-                                    </router-link>
+                        <div v-else>
+                        <h2 class="card-title text-center">{{$t('contact.inquiry')}} #{{inquiry.id}}</h2>
+                            <div class="card-body">
+                                <div class="row justify-content-center">
+                                    <div class="form-group">
+                                        <router-link class="btn btn-primary btn-block" to="/contact-us"><i
+                                                class="fa fa-plus"></i> {{$t('contact.new')}}
+                                        </router-link>
+
+                                        <router-link class="btn btn-info btn-block" to="/inquires"><i
+                                                class="fa fa-history"></i> {{$t('contact.contact_history')}}
+                                        </router-link>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="row">
-                                <table class="table table-bordered table-striped table-condensed">
-                                    <tr>
-                                        <td class="table-danger">{{$t('contact.date')}}</td>
-                                        <td>{{ inquiry.created_at | formatDate }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="table-danger">{{$t('labels.name')}}</td>
-                                        <td>{{inquiry.name}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="table-danger">{{$t('labels.mobile')}}</td>
-                                        <td>{{ inquiry.mobile }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="table-danger">{{$t('contact.branch')}}</td>
-                                        <td>{{ $t('labels.orders.city.'+inquiry.branch) }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="table-danger">{{$t('contact.comments')}}</td>
-                                        <td>{{ inquiry.comments }}</td>
-                                    </tr>
-                                </table>
+                                <div class="row">
+                                    <table class="table table-bordered table-striped table-condensed">
+                                        <tr>
+                                            <td class="table-danger">{{$t('contact.date')}}</td>
+                                            <td>{{ inquiry.created_at | formatDate }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="table-danger">{{$t('labels.name')}}</td>
+                                            <td>{{inquiry.name}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="table-danger">{{$t('labels.mobile')}}</td>
+                                            <td>{{ inquiry.mobile }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="table-danger">{{$t('contact.branch')}}</td>
+                                            <td>{{ $t('labels.orders.city.'+inquiry.branch) }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="table-danger">{{$t('contact.comments')}}</td>
+                                            <td>{{ inquiry.comments }}</td>
+                                        </tr>
+                                    </table>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -57,11 +65,12 @@
     import url from './helpers/URL';
 
     export default {
-        name: "order",
+        name: "inquiry",
         data() {
             return {
                 inquiry: {},
-                device_id:'123456'
+                device_id:'123456',
+                loading:false
             }
         },
         created() {
@@ -69,12 +78,18 @@
         },
         methods: {
             loadOrder() {
-                const path = url(`/api/inquires/${this.$route.params.id}?device_id=${this.device_id}`);
+                this.loading = true;
+
+                const path = url(`/api/display-inquiry/${this.$route.params.id}?device_id=${this.device_id}`);
 
                 this.$http.get(path).then(response => {
                     this.inquiry = response.data;
+                    this.loading = false;
+
                     // this.$parent.loading = false;
                 }, (response) => {
+                    this.loading = false;
+
                     // this.$parent.loading = false;
                 });
             }

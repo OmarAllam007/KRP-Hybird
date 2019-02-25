@@ -1,13 +1,8 @@
 <template>
     <div>
-        <router-link :to="booked" v-if="booked" title="" data-placement="bottom" class="navbar-brand">
+        <router-link to="/cart-details"  title="" data-placement="bottom" class="navbar-brand">
             <i class="fa fa-shopping-cart"></i>
         </router-link>
-
-        <router-link to="/cart-details" v-else title="" data-placement="bottom" class="navbar-brand">
-            <i class="fa fa-shopping-cart"></i>
-        </router-link>
-
 
         <span class="badge badge-pill badge-dark" style="padding: 3px" v-model="items_count"
               v-text="items_count"></span>
@@ -37,12 +32,6 @@
                 }
                 return this.items;
             },
-            booked() {
-                if (this.$parent.checkpoint) {
-                    return '/checkpoint'
-                }
-                return '/cart-details'
-            }
         },
         methods: {
             productExist(item) {
@@ -61,7 +50,10 @@
                 this.products = [];
                 this.items = 0;
                 this.$parent.checkpoint = false
+                Session.set('is_booked',false)
             });
+
+
             EventBus.$on('add-to-cart', (item) => {
                 item.quantity = 1;
                 if (this.$parent.cart.length) {
@@ -75,6 +67,8 @@
                 Session.set('cart-products', this.$parent.cart);
                 this.items = (Session.get('cart-products') && Session.get('cart-products').length) ? Session.get('cart-products').length : 0
             });
+
+
 
             EventBus.$on('remove-from-cart', (target) => {
                 var items = Session.get('cart-products').filter((item) => {
