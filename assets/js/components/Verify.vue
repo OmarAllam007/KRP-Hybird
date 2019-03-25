@@ -60,6 +60,10 @@
                 this.$http.put(url(`/api/balance/verify/${this.token}`), this.data).then(response => {
                     if (response.data.ok) {
                         Session.set('verified', true);
+                        console.log(response.data.customer.name)
+                        Session.set('customer_name', response.data.customer.name);
+                        Session.set('customer_email', response.data.customer.email);
+                        Session.set('customer_mobile', response.data.customer.mobile);
                         this.$router.push('/balance');
                     } else {
                         // this.alert = {message: response.data.message, type: 'error'};

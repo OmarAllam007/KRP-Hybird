@@ -239,6 +239,7 @@
                 this.data.map.setZoom(15);
                 this.data.map.setCenter(marker.getPosition());
 
+
                 $.getJSON('//nominatim.openstreetmap.org/reverse?json_callback=?&format=json', {
                     lat: this.data.latitude,
                     lon: this.data.longitude
@@ -283,6 +284,7 @@
             }
         },
         created() {
+            console.log(Session.get('customer'))
             if (this.$parent.checkpoint) {
                 this.$router.push('/checkpoint')
             }
@@ -291,9 +293,9 @@
             this.watchMapPosition();
             this.data.products = Session.get('cart-products');
             if(this.data.verified){
-              this.data.name = this.$parent.customer.name;
-              this.data.mobile = this.$parent.customer.mobile;
-              this.data.email = this.$parent.customer.email;
+              this.data.name = Session.get('customer_name');
+              this.data.mobile = Session.get('customer_mobile');
+              this.data.email = Session.get('customer_email');
             }
         }
     }

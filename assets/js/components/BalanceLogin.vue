@@ -49,6 +49,7 @@
     import url from '../components/helpers/URL'
     import Session from './helpers/Session.js';
     import Alert from '../components/Alert'
+    import CJSON from 'circular-json'
     export default {
         name: "balance",
         data() {
@@ -56,10 +57,12 @@
         },
         methods: {
             login() {
-                this.$http.post(url('/api/balance/login'), this.data).then(response => {
+                this.$http.post(url('/api/balance/login'), JSON.parse(CJSON.stringify(this.data))).then(response => {
                     Session.set('token', response.data.token);
+
                     this.$router.push('/verify');
                     // this.$parent.loading = false;
+                    console.log(response)
                 }, response => {
                     let alert_message_content = this.$t('alert.verfiy_error')
                     swal({
